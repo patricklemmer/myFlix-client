@@ -13,7 +13,7 @@ export class MovieCard extends React.Component {
     const { movie, onMovieClick } = this.props;
     return (
       <Card>
-        <Card.Img variant="top" src={movie.ImageURL} />
+        <Card.Img variant="top" src={movie.ImageURL} crossOrigin="anonymous" />
         <Card.Body>
           <Card.Title>{movie.Title}</Card.Title>
           <Card.Text>{movie.Description}</Card.Text>
