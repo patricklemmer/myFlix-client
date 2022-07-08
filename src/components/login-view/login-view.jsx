@@ -4,6 +4,10 @@ import React, { useState } from 'react';
 // React Bootstrap imports
 import { Button, Form } from 'react-bootstrap';
 
+// Other imports
+import axios from 'axios';
+
+// Begin component
 export function LoginView(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -12,8 +16,18 @@ export function LoginView(props) {
     e.preventDefault();
     console.log(username, password);
     /* Send a request to the server for authentication */
-    /* then call props.onLoggedIn(username) */
-    props.onLoggedIn(username);
+    axios
+      .post('https://patricklemmer-myflix.herokuapp.com/login', {
+        Username: username,
+        Password: password,
+      })
+      .then((response) => {
+        const data = response.data;
+        props.onLoggedIn(data);
+      })
+      .catch((e) => {
+        console.log('no such user');
+      });
   };
 
   return (
