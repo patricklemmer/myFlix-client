@@ -56,7 +56,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<p>The objective for this project is, using React to build the client-side for the myFlix database based on its existing [server-side code (REST API and database)](https://github.com/patricklemmer/myFlix_app).</p> 
+The objective for this project is, using React to build the client-side for the myFlix database based on its existing [server-side code (REST API and database)](https://github.com/patricklemmer/myFlix_app).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
