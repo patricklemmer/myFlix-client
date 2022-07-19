@@ -64,7 +64,7 @@ export function RegistrationView(props) {
     const isReq = validate();
     if (isReq) {
       axios
-        .post('https://patricklemmer-myflix.herokuapp.com/register', {
+        .post('https://patricklemmer-myflix.herokuapp.com/users', {
           Username: username,
           Password: password,
           Email: email,
@@ -130,7 +130,7 @@ export function RegistrationView(props) {
             <Form.Group controlId="formBirthday" className="mt-3">
               <Form.Label>Birthday:</Form.Label>
               <Form.Control
-                type="text"
+                type="date"
                 value={birthday}
                 onChange={(e) => setBirthday(e.target.value)}
                 placeholder="YYYY-MM-DD"

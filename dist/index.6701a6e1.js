@@ -4080,7 +4080,7 @@ class MainView extends _reactDefault.default.Component {
                                 __self: this
                             }),
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
-                                path: "/register",
+                                path: "/users",
                                 render: ()=>{
                                     if (user) return(/*#__PURE__*/ _jsxRuntime.jsx(Redirect, {
                                         to: "/"
@@ -44573,7 +44573,7 @@ function RegistrationView(props) {
     const handleSubmit = (e)=>{
         e.preventDefault();
         const isReq = validate();
-        if (isReq) _axiosDefault.default.post('https://patricklemmer-myflix.herokuapp.com/register', {
+        if (isReq) _axiosDefault.default.post('https://patricklemmer-myflix.herokuapp.com/users', {
             Username: username,
             Password: password,
             Email: email,
@@ -44766,7 +44766,7 @@ function RegistrationView(props) {
                                         children: "Birthday:"
                                     }),
                                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
-                                        type: "text",
+                                        type: "date",
                                         value: birthday,
                                         onChange: (e)=>setBirthday(e.target.value)
                                         ,
@@ -44869,7 +44869,7 @@ parcelHelpers.export(exports, "ROUTES", ()=>ROUTES
 const ROUTES = {
     HOME: '/',
     LOGIN: '/login',
-    REGISTER: '/register',
+    REGISTER: '/users',
     MOVIES: '/movies',
     PROFILE: '/profile'
 };
