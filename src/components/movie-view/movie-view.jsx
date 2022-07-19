@@ -1,4 +1,14 @@
+// React imports
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+// React Bootstrap imports
+import { Button, Col, Container, Row } from 'react-bootstrap';
+
+// Other imports
+import PropTypes from 'prop-types';
+
+import './movie-view.scss';
 
 export class MovieView extends React.Component {
   keypressCallback(event) {
@@ -17,26 +27,59 @@ export class MovieView extends React.Component {
     const { movie, onBackClick } = this.props;
 
     return (
-      <div className="movie-view">
-        <div className="movie-poster">
-          <img src={movie.ImageURL} crossOrigin="anonymous" />
-        </div>
-        <div className="movie-title">
-          <span className="label">Title: </span>
-          <span className="value">{movie.Title}</span>
-        </div>
-        <div className="movie-description">
-          <span className="label">Description: </span>
-          <span className="value">{movie.Description}</span>
-        </div>
-        <button
+      <Container className="movie-view">
+        <Row className="movie-title mb-4">
+          <Col className="value">{movie.Title}</Col>
+        </Row>
+        <Row className="mb-3 gx-5">
+          <Col className="movie-poster mb-4" md={5} lg={4}>
+            <img src={movie.ImageURL} crossOrigin="anonymous" />
+          </Col>
+          <Col className="movie-description" xs={12} sm={12} md={7}>
+            <Col className="label">Description: </Col>
+            <Col className="value">{movie.Description}</Col>
+          </Col>
+        </Row>
+        <Row className="movie-buttons-row">
+          <Link to={`/directors/${movie.Director.Name}`} className="btn-link">
+            <Button className="btn-movie d-block" variant="info">
+              Director
+            </Button>
+          </Link>
+          <Link to={`/genres/${movie.Genre.Name}`} className="btn-link">
+            <Button className="btn-movie d-block ml-3" variant="info">
+              Genre
+            </Button>
+          </Link>
+        </Row>
+        <Button
+          className="d-block mt-5"
           onClick={() => {
             onBackClick(null);
           }}
+          variant="warning"
         >
           Back
-        </button>
-      </div>
+        </Button>
+      </Container>
     );
   }
 }
+
+MovieView.propTypes = {
+  movie: PropTypes.shape({
+    Title: PropTypes.string.isRequired,
+    Description: PropTypes.string.isRequired,
+    ImageURL: PropTypes.string.isRequired,
+    Director: PropTypes.shape({
+      Name: PropTypes.string.isRequired,
+      Bio: PropTypes.string.isRequired,
+      Birth: PropTypes.string.isRequired,
+      Died: PropTypes.string,
+    }),
+    Genre: PropTypes.shape({
+      Name: PropTypes.string.isRequired,
+      Description: PropTypes.string.isRequired,
+    }),
+  }).isRequired,
+};

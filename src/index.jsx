@@ -12,6 +12,8 @@ import { ROUTES } from './routes.js';
 // Component imports
 import { MainView } from './components/main-view/main-view';
 import { RegistrationView } from './components/registration-view/registration-view';
+import { LoginView } from './components/login-view/login-view.jsx';
+import { ProfileView } from './components/profile-view/profile-view.jsx';
 
 // Import statement to indicate that you need to bundle `./index.scss`
 import './index.scss';
@@ -25,8 +27,14 @@ class MyFlixApplication extends React.Component {
           <Route exact path={ROUTES.HOME}>
             <MainView />
           </Route>
+          <Route path={ROUTES.LOGIN}>
+            <LoginView />
+          </Route>
           <Route path={ROUTES.REGISTER}>
             <RegistrationView />
+          </Route>
+          <Route path={ROUTES.PROFILE}>
+            <ProfileView />
           </Route>
         </Router>
       </Container>

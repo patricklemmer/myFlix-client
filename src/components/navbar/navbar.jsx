@@ -29,7 +29,7 @@ export function Navbar({ user }) {
           {isAuth() && (
             <Fragment>
               <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href={`/users/${user}`}>Profil</Nav.Link>
+              <Nav.Link href={`/users/${user}`}>Profile</Nav.Link>
               <Nav.Link onClick={onLoggedOut}>Sign-out</Nav.Link>
             </Fragment>
           )}

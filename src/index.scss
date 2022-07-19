@@ -1,5 +1,16 @@
-$color: steelblue;
+* {
+  font-family: Raleway, sans-serif;
+  line-height: 1.8;
+}
 
-.my-flix {
-  color: $color;
+// body {
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+// }
+
+.container {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
 }
