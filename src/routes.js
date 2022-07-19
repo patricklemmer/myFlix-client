@@ -1,7 +1,7 @@
 export const ROUTES = {
   HOME: '/',
   LOGIN: '/login',
-  REGISTER: '/users',
+  REGISTER: '/register',
   MOVIES: '/movies',
   PROFILE: '/profile',
 };

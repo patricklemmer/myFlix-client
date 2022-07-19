@@ -64,7 +64,7 @@ export function RegistrationView(props) {
     const isReq = validate();
     if (isReq) {
       axios
-        .post('https://patricklemmer-myflix.herokuapp.com/users', {
+        .post('https://patricklemmer-myflix.herokuapp.com/register', {
           Username: username,
           Password: password,
           Email: email,
@@ -143,7 +143,7 @@ export function RegistrationView(props) {
                 </Button>
                 <p></p>
                 <p>
-                  Already registered? <Link to={'/'}>Sign in</Link>here
+                  Already registered? Sign in <Link to={'/'}>here</Link>
                 </p>
               </Col>
             </Row>

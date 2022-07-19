@@ -4080,7 +4080,7 @@ class MainView extends _reactDefault.default.Component {
                                 __self: this
                             }),
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
-                                path: "/users",
+                                path: "/register",
                                 render: ()=>{
                                     if (user) return(/*#__PURE__*/ _jsxRuntime.jsx(Redirect, {
                                         to: "/"
@@ -44573,7 +44573,7 @@ function RegistrationView(props) {
     const handleSubmit = (e)=>{
         e.preventDefault();
         const isReq = validate();
-        if (isReq) _axiosDefault.default.post('https://patricklemmer-myflix.herokuapp.com/users', {
+        if (isReq) _axiosDefault.default.post('https://patricklemmer-myflix.herokuapp.com/register', {
             Username: username,
             Password: password,
             Email: email,
@@ -44821,7 +44821,7 @@ function RegistrationView(props) {
                                             },
                                             __self: this,
                                             children: [
-                                                "Already registered? ",
+                                                "Already registered? Sign in ",
                                                 /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
                                                     to: '/',
                                                     __source: {
@@ -44829,9 +44829,8 @@ function RegistrationView(props) {
                                                         lineNumber: 146
                                                     },
                                                     __self: this,
-                                                    children: "Sign in"
-                                                }),
-                                                "here"
+                                                    children: "here"
+                                                })
                                             ]
                                         })
                                     ]
@@ -44870,7 +44869,7 @@ parcelHelpers.export(exports, "ROUTES", ()=>ROUTES
 const ROUTES = {
     HOME: '/',
     LOGIN: '/login',
-    REGISTER: '/users',
+    REGISTER: '/register',
     MOVIES: '/movies',
     PROFILE: '/profile'
 };
