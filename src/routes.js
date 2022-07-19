@@ -3,7 +3,5 @@ export const ROUTES = {
   LOGIN: '/login',
   REGISTER: '/users',
   MOVIES: '/movies',
-  DIRECTORS: '/directors',
-  GENRES: '/genres',
   PROFILE: '/profile',
 };

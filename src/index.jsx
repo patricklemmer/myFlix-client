@@ -27,14 +27,8 @@ class MyFlixApplication extends React.Component {
           <Route exact path={ROUTES.HOME}>
             <MainView />
           </Route>
-          <Route path={ROUTES.LOGIN}>
-            <LoginView />
-          </Route>
           <Route path={ROUTES.REGISTER}>
             <RegistrationView />
-          </Route>
-          <Route path={ROUTES.PROFILE}>
-            <ProfileView />
           </Route>
         </Router>
       </Container>
