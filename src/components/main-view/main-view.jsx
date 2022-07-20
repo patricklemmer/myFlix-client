@@ -12,6 +12,9 @@ import { setMovies, setUser } from '../../actions/actions';
 // Other imports
 import axios from 'axios';
 
+// Stylesheet imports
+import './main-view.scss';
+
 // Component imports
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
@@ -26,16 +29,17 @@ class MainView extends React.Component {
   constructor() {
     super();
     // Initial state is set to null
-    this.state = {};
+    this.state = {
+      selectedMovie: null,
+    };
   }
 
   componentDidMount() {
     // Persists login data in localStorage
     let accessToken = localStorage.getItem('token');
     if (accessToken !== null) {
-      this.setState({
-        user: localStorage.getItem('user'),
-      });
+      const { setUser } = this.props;
+      setUser(localStorage.getItem('user'));
       this.getMovies(accessToken);
     }
   }
@@ -43,7 +47,7 @@ class MainView extends React.Component {
   async getMovies(token) {
     try {
       let response = await axios.get(
-        'https://patricklemmer-myflix.herokuapp.com//movies',
+        'https://patricklemmer-myflix.herokuapp.com/movies',
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -56,14 +60,11 @@ class MainView extends React.Component {
 
   // When a user successfully logs in, this function updates the `user` property in state to that *particular user
   onLoggedIn(authData) {
-    console.log(authData);
-    this.setState({
-      user: authData.user.Username,
-    });
-
     localStorage.setItem('token', authData.token);
     localStorage.setItem('user', authData.user.Username);
     this.getMovies(authData.token);
+    const { setUser } = this.props;
+    setUser(authData.user.Username);
   }
 
   render() {

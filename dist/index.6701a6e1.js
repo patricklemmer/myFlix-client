@@ -3963,6 +3963,8 @@ var _actions = require("../../actions/actions");
 // Other imports
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
+// Stylesheet imports
+var _mainViewScss = require("./main-view.scss");
 // Component imports
 var _loginView = require("../login-view/login-view");
 var _registrationView = require("../registration-view/registration-view");
@@ -3978,21 +3980,21 @@ class MainView extends _reactDefault.default.Component {
         super();
         // Initial state is set to null
         this.state = {
+            selectedMovie: null
         };
     }
     componentDidMount() {
         // Persists login data in localStorage
         let accessToken = localStorage.getItem('token');
         if (accessToken !== null) {
-            this.setState({
-                user: localStorage.getItem('user')
-            });
+            const { setUser  } = this.props;
+            setUser(localStorage.getItem('user'));
             this.getMovies(accessToken);
         }
     }
     async getMovies(token) {
         try {
-            let response = await _axiosDefault.default.get('https://patricklemmer-myflix.herokuapp.com//movies', {
+            let response = await _axiosDefault.default.get('https://patricklemmer-myflix.herokuapp.com/movies', {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -4004,20 +4006,18 @@ class MainView extends _reactDefault.default.Component {
     }
     // When a user successfully logs in, this function updates the `user` property in state to that *particular user
     onLoggedIn(authData) {
-        console.log(authData);
-        this.setState({
-            user: authData.user.Username
-        });
         localStorage.setItem('token', authData.token);
         localStorage.setItem('user', authData.user.Username);
         this.getMovies(authData.token);
+        const { setUser  } = this.props;
+        setUser(authData.user.Username);
     }
     render() {
         const { movies , user  } = this.props;
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.BrowserRouter, {
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 73
+                lineNumber: 74
             },
             __self: this,
             children: [
@@ -4025,7 +4025,7 @@ class MainView extends _reactDefault.default.Component {
                     user: user,
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 74
+                        lineNumber: 75
                     },
                     __self: this
                 }),
@@ -4033,7 +4033,7 @@ class MainView extends _reactDefault.default.Component {
                     className: "main-view justify-content-md-center",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 75
+                        lineNumber: 76
                     },
                     __self: this,
                     children: [
@@ -4055,7 +4055,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 76
+                                lineNumber: 77
                             },
                             __self: this
                         }),
@@ -4073,7 +4073,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 90
+                                lineNumber: 91
                             },
                             __self: this
                         }),
@@ -4102,7 +4102,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 101
+                                lineNumber: 102
                             },
                             __self: this
                         }),
@@ -4128,7 +4128,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 121
+                                lineNumber: 122
                             },
                             __self: this
                         }),
@@ -4154,7 +4154,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 144
+                                lineNumber: 145
                             },
                             __self: this
                         }),
@@ -4182,7 +4182,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 167
+                                lineNumber: 168
                             },
                             __self: this
                         })
@@ -4208,7 +4208,7 @@ exports.default = _reactRedux.connect(mapStateToProps, {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"a2iz4","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"iiska","../movie-view/movie-view":"ikZdr","axios":"iYoWk","../login-view/login-view":"054li","react-bootstrap":"h2YVd","react-router-dom":"cpyQW","../registration-view/registration-view":"aP2YV","../navbar/navbar":"63yS7","../director-view/director-view":"ck15y","../genre-view/genre-view":"8WCoL","../profile-view/profile-view":"2E7Aw","react-redux":"2L0if","../../actions/actions":"1Ttfj","../movies-list/movies-list":"1kGQ5"}],"ikZdr":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"a2iz4","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"iiska","../movie-view/movie-view":"ikZdr","axios":"iYoWk","../login-view/login-view":"054li","react-bootstrap":"h2YVd","react-router-dom":"cpyQW","../registration-view/registration-view":"aP2YV","../navbar/navbar":"63yS7","../director-view/director-view":"ck15y","../genre-view/genre-view":"8WCoL","../profile-view/profile-view":"2E7Aw","react-redux":"2L0if","../../actions/actions":"1Ttfj","../movies-list/movies-list":"1kGQ5","./main-view.scss":"jyMAr"}],"ikZdr":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$3741 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -4229,6 +4229,7 @@ var _reactBootstrap = require("react-bootstrap");
 // Other imports
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
+// Stylesheet imports
 var _movieViewScss = require("./movie-view.scss");
 class MovieView extends _reactDefault.default.Component {
     render() {
@@ -4237,7 +4238,7 @@ class MovieView extends _reactDefault.default.Component {
             className: "movie-view",
             __source: {
                 fileName: "src/components/movie-view/movie-view.jsx",
-                lineNumber: 18
+                lineNumber: 19
             },
             __self: this,
             children: [
@@ -4245,14 +4246,14 @@ class MovieView extends _reactDefault.default.Component {
                     className: "movie-title mb-4",
                     __source: {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 19
+                        lineNumber: 20
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
                         className: "value",
                         __source: {
                             fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 20
+                            lineNumber: 21
                         },
                         __self: this,
                         children: movie.Title
@@ -4262,7 +4263,7 @@ class MovieView extends _reactDefault.default.Component {
                     className: "mb-3 gx-5",
                     __source: {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 22
+                        lineNumber: 23
                     },
                     __self: this,
                     children: [
@@ -4272,7 +4273,7 @@ class MovieView extends _reactDefault.default.Component {
                             lg: 4,
                             __source: {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 23
+                                lineNumber: 24
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsx("img", {
@@ -4280,7 +4281,7 @@ class MovieView extends _reactDefault.default.Component {
                                 crossOrigin: "anonymous",
                                 __source: {
                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 24
+                                    lineNumber: 25
                                 },
                                 __self: this
                             })
@@ -4292,7 +4293,7 @@ class MovieView extends _reactDefault.default.Component {
                             md: 7,
                             __source: {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 26
+                                lineNumber: 27
                             },
                             __self: this,
                             children: [
@@ -4300,7 +4301,7 @@ class MovieView extends _reactDefault.default.Component {
                                     className: "label",
                                     __source: {
                                         fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 27
+                                        lineNumber: 28
                                     },
                                     __self: this,
                                     children: "Description: "
@@ -4309,7 +4310,7 @@ class MovieView extends _reactDefault.default.Component {
                                     className: "value",
                                     __source: {
                                         fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 28
+                                        lineNumber: 29
                                     },
                                     __self: this,
                                     children: movie.Description
@@ -4322,7 +4323,7 @@ class MovieView extends _reactDefault.default.Component {
                     className: "movie-buttons-row",
                     __source: {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 31
+                        lineNumber: 32
                     },
                     __self: this,
                     children: [
@@ -4331,7 +4332,7 @@ class MovieView extends _reactDefault.default.Component {
                             className: "btn-link",
                             __source: {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 32
+                                lineNumber: 33
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
@@ -4339,7 +4340,7 @@ class MovieView extends _reactDefault.default.Component {
                                 variant: "info",
                                 __source: {
                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 33
+                                    lineNumber: 34
                                 },
                                 __self: this,
                                 children: "Director"
@@ -4350,7 +4351,7 @@ class MovieView extends _reactDefault.default.Component {
                             className: "btn-link",
                             __source: {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 37
+                                lineNumber: 38
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
@@ -4358,7 +4359,7 @@ class MovieView extends _reactDefault.default.Component {
                                 variant: "info",
                                 __source: {
                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 38
+                                    lineNumber: 39
                                 },
                                 __self: this,
                                 children: "Genre"
@@ -4374,7 +4375,7 @@ class MovieView extends _reactDefault.default.Component {
                     variant: "warning",
                     __source: {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 43
+                        lineNumber: 44
                     },
                     __self: this,
                     children: "Back"
@@ -44239,7 +44240,7 @@ var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
-// Stylesheet import
+// Stylesheet imports
 var _loginViewScss = require("./login-view.scss");
 var _s = $RefreshSig$();
 function LoginView(props) {
@@ -44313,9 +44314,9 @@ function LoginView(props) {
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
-                    sm: "10",
-                    md: "8",
-                    lg: "6",
+                    sm: 10,
+                    md: 8,
+                    lg: 6,
                     __source: {
                         fileName: "src/components/login-view/login-view.jsx",
                         lineNumber: 70
@@ -44411,9 +44412,9 @@ function LoginView(props) {
                                 },
                                 __self: this,
                                 children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
-                                    sm: "10",
-                                    md: "8",
-                                    lg: "6",
+                                    sm: 10,
+                                    md: 8,
+                                    lg: 6,
                                     __source: {
                                         fileName: "src/components/login-view/login-view.jsx",
                                         lineNumber: 93
@@ -44465,15 +44466,15 @@ $parcel$ReactRefreshHelpers$8dd4.prelude(module);
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-// Begin component
 parcelHelpers.export(exports, "RegistrationView", ()=>RegistrationView
 );
 var _jsxRuntime = require("react/jsx-runtime");
 // React imports
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _reactBootstrap = require("react-bootstrap");
 var _reactRouterDom = require("react-router-dom");
+// React Bootstrap imports
+var _reactBootstrap = require("react-bootstrap");
 // Other imports
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
@@ -44555,7 +44556,13 @@ function RegistrationView(props) {
             alert('Unable to register');
         });
     };
-    return(/*#__PURE__*/ _jsxRuntime.jsxs(_jsxRuntime.Fragment, {
+    return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
+        id: "registration-form",
+        __source: {
+            fileName: "src/components/registration-view/registration-view.jsx",
+            lineNumber: 87
+        },
+        __self: this,
         children: [
             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
                 className: "justify-content-center",
@@ -44840,9 +44847,12 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Navbar", ()=>Navbar
 );
 var _jsxRuntime = require("react/jsx-runtime");
+// React imports
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+// React Bootstrap imports
 var _reactBootstrap = require("react-bootstrap");
+// Stylesheet imports
 var _navbarScss = require("./navbar.scss");
 function Navbar({ user  }) {
     const isAuth = ()=>{
@@ -44855,12 +44865,11 @@ function Navbar({ user  }) {
         window.open('/', '_self');
     };
     return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Navbar, {
-        bg: "light",
         expand: "lg",
-        className: "mb-5",
+        className: "mb-5 navbar",
         __source: {
             fileName: "src/components/navbar/navbar.jsx",
-            lineNumber: 22
+            lineNumber: 26
         },
         __self: this,
         children: [
@@ -44868,13 +44877,13 @@ function Navbar({ user  }) {
                 href: "/",
                 __source: {
                     fileName: "src/components/navbar/navbar.jsx",
-                    lineNumber: 23
+                    lineNumber: 27
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsx("h1", {
                     __source: {
                         fileName: "src/components/navbar/navbar.jsx",
-                        lineNumber: 24
+                        lineNumber: 28
                     },
                     __self: this,
                     children: "myFlix"
@@ -44884,28 +44893,28 @@ function Navbar({ user  }) {
                 "aria-controls": "navbar-nav",
                 __source: {
                     fileName: "src/components/navbar/navbar.jsx",
-                    lineNumber: 26
+                    lineNumber: 30
                 },
                 __self: this
             }),
             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar.Collapse, {
                 __source: {
                     fileName: "src/components/navbar/navbar.jsx",
-                    lineNumber: 27
+                    lineNumber: 31
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Nav, {
                     className: "me-auto",
                     __source: {
                         fileName: "src/components/navbar/navbar.jsx",
-                        lineNumber: 28
+                        lineNumber: 32
                     },
                     __self: this,
                     children: [
                         isAuth() && /*#__PURE__*/ _jsxRuntime.jsxs(_react.Fragment, {
                             __source: {
                                 fileName: "src/components/navbar/navbar.jsx",
-                                lineNumber: 30
+                                lineNumber: 34
                             },
                             __self: this,
                             children: [
@@ -44913,7 +44922,7 @@ function Navbar({ user  }) {
                                     href: "/",
                                     __source: {
                                         fileName: "src/components/navbar/navbar.jsx",
-                                        lineNumber: 31
+                                        lineNumber: 35
                                     },
                                     __self: this,
                                     children: "Home"
@@ -44922,7 +44931,7 @@ function Navbar({ user  }) {
                                     href: `/users/${user}`,
                                     __source: {
                                         fileName: "src/components/navbar/navbar.jsx",
-                                        lineNumber: 32
+                                        lineNumber: 36
                                     },
                                     __self: this,
                                     children: "Profile"
@@ -44931,7 +44940,7 @@ function Navbar({ user  }) {
                                     onClick: onLoggedOut,
                                     __source: {
                                         fileName: "src/components/navbar/navbar.jsx",
-                                        lineNumber: 33
+                                        lineNumber: 37
                                     },
                                     __self: this,
                                     children: "Sign-out"
@@ -44941,7 +44950,7 @@ function Navbar({ user  }) {
                         !isAuth() && /*#__PURE__*/ _jsxRuntime.jsxs(_react.Fragment, {
                             __source: {
                                 fileName: "src/components/navbar/navbar.jsx",
-                                lineNumber: 37
+                                lineNumber: 41
                             },
                             __self: this,
                             children: [
@@ -44949,7 +44958,7 @@ function Navbar({ user  }) {
                                     href: '/',
                                     __source: {
                                         fileName: "src/components/navbar/navbar.jsx",
-                                        lineNumber: 38
+                                        lineNumber: 42
                                     },
                                     __self: this,
                                     children: "Sign-in"
@@ -44958,7 +44967,7 @@ function Navbar({ user  }) {
                                     href: '/users',
                                     __source: {
                                         fileName: "src/components/navbar/navbar.jsx",
-                                        lineNumber: 39
+                                        lineNumber: 43
                                     },
                                     __self: this,
                                     children: "Sign-up"
@@ -44992,11 +45001,15 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "DirectorView", ()=>DirectorView
 );
 var _jsxRuntime = require("react/jsx-runtime");
+//React imports
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+// React Bootstrap imports
+var _reactBootstrap = require("react-bootstrap");
+// Other imports
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
-var _reactBootstrap = require("react-bootstrap");
+// Stylesheet imports
 var _directorViewScss = require("./director-view.scss");
 class DirectorView extends _reactDefault.default.Component {
     render() {
@@ -45005,14 +45018,14 @@ class DirectorView extends _reactDefault.default.Component {
             className: "director-view",
             __source: {
                 fileName: "src/components/director-view/director-view.jsx",
-                lineNumber: 13
+                lineNumber: 18
             },
             __self: this,
             children: [
                 /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Row, {
                     __source: {
                         fileName: "src/components/director-view/director-view.jsx",
-                        lineNumber: 14
+                        lineNumber: 19
                     },
                     __self: this,
                     children: [
@@ -45020,7 +45033,7 @@ class DirectorView extends _reactDefault.default.Component {
                             className: "label",
                             __source: {
                                 fileName: "src/components/director-view/director-view.jsx",
-                                lineNumber: 15
+                                lineNumber: 20
                             },
                             __self: this,
                             children: "Director: "
@@ -45030,7 +45043,7 @@ class DirectorView extends _reactDefault.default.Component {
                             xs: 8,
                             __source: {
                                 fileName: "src/components/director-view/director-view.jsx",
-                                lineNumber: 16
+                                lineNumber: 21
                             },
                             __self: this,
                             children: director.Name
@@ -45041,7 +45054,7 @@ class DirectorView extends _reactDefault.default.Component {
                     className: "mt-3",
                     __source: {
                         fileName: "src/components/director-view/director-view.jsx",
-                        lineNumber: 20
+                        lineNumber: 25
                     },
                     __self: this,
                     children: [
@@ -45049,7 +45062,7 @@ class DirectorView extends _reactDefault.default.Component {
                             className: "label",
                             __source: {
                                 fileName: "src/components/director-view/director-view.jsx",
-                                lineNumber: 21
+                                lineNumber: 26
                             },
                             __self: this,
                             children: "Bio: "
@@ -45059,7 +45072,7 @@ class DirectorView extends _reactDefault.default.Component {
                             xs: 8,
                             __source: {
                                 fileName: "src/components/director-view/director-view.jsx",
-                                lineNumber: 22
+                                lineNumber: 27
                             },
                             __self: this,
                             children: director.Bio
@@ -45070,7 +45083,7 @@ class DirectorView extends _reactDefault.default.Component {
                     className: "mt-3",
                     __source: {
                         fileName: "src/components/director-view/director-view.jsx",
-                        lineNumber: 26
+                        lineNumber: 31
                     },
                     __self: this,
                     children: [
@@ -45078,7 +45091,7 @@ class DirectorView extends _reactDefault.default.Component {
                             className: "label",
                             __source: {
                                 fileName: "src/components/director-view/director-view.jsx",
-                                lineNumber: 27
+                                lineNumber: 32
                             },
                             __self: this,
                             children: "Birth: "
@@ -45088,7 +45101,7 @@ class DirectorView extends _reactDefault.default.Component {
                             xs: 8,
                             __source: {
                                 fileName: "src/components/director-view/director-view.jsx",
-                                lineNumber: 28
+                                lineNumber: 33
                             },
                             __self: this,
                             children: director.Birth
@@ -45099,7 +45112,7 @@ class DirectorView extends _reactDefault.default.Component {
                     className: "mt-3",
                     __source: {
                         fileName: "src/components/director-view/director-view.jsx",
-                        lineNumber: 33
+                        lineNumber: 38
                     },
                     __self: this,
                     children: [
@@ -45107,7 +45120,7 @@ class DirectorView extends _reactDefault.default.Component {
                             className: "label",
                             __source: {
                                 fileName: "src/components/director-view/director-view.jsx",
-                                lineNumber: 34
+                                lineNumber: 39
                             },
                             __self: this,
                             children: "Death: "
@@ -45117,7 +45130,7 @@ class DirectorView extends _reactDefault.default.Component {
                             xs: 8,
                             __source: {
                                 fileName: "src/components/director-view/director-view.jsx",
-                                lineNumber: 35
+                                lineNumber: 40
                             },
                             __self: this,
                             children: director.Death
@@ -45132,7 +45145,7 @@ class DirectorView extends _reactDefault.default.Component {
                     variant: "warning",
                     __source: {
                         fileName: "src/components/director-view/director-view.jsx",
-                        lineNumber: 41
+                        lineNumber: 46
                     },
                     __self: this,
                     children: "Back"
@@ -45167,11 +45180,15 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "GenreView", ()=>GenreView
 );
 var _jsxRuntime = require("react/jsx-runtime");
+// React imports
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+// React Bootstrap imports
+var _reactBootstrap = require("react-bootstrap");
+// Other imports
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
-var _reactBootstrap = require("react-bootstrap");
+// Stylesheet imports
 var _genreViewScss = require("./genre-view.scss");
 class GenreView extends _reactDefault.default.Component {
     render() {
@@ -45180,14 +45197,14 @@ class GenreView extends _reactDefault.default.Component {
             className: "genre-view",
             __source: {
                 fileName: "src/components/genre-view/genre-view.jsx",
-                lineNumber: 13
+                lineNumber: 18
             },
             __self: this,
             children: [
                 /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Row, {
                     __source: {
                         fileName: "src/components/genre-view/genre-view.jsx",
-                        lineNumber: 14
+                        lineNumber: 19
                     },
                     __self: this,
                     children: [
@@ -45195,7 +45212,7 @@ class GenreView extends _reactDefault.default.Component {
                             className: "label",
                             __source: {
                                 fileName: "src/components/genre-view/genre-view.jsx",
-                                lineNumber: 15
+                                lineNumber: 20
                             },
                             __self: this,
                             children: "Genre: "
@@ -45205,7 +45222,7 @@ class GenreView extends _reactDefault.default.Component {
                             xs: 8,
                             __source: {
                                 fileName: "src/components/genre-view/genre-view.jsx",
-                                lineNumber: 16
+                                lineNumber: 21
                             },
                             __self: this,
                             children: genre.Name
@@ -45216,7 +45233,7 @@ class GenreView extends _reactDefault.default.Component {
                     className: "mt-3",
                     __source: {
                         fileName: "src/components/genre-view/genre-view.jsx",
-                        lineNumber: 20
+                        lineNumber: 25
                     },
                     __self: this,
                     children: [
@@ -45224,7 +45241,7 @@ class GenreView extends _reactDefault.default.Component {
                             className: "label",
                             __source: {
                                 fileName: "src/components/genre-view/genre-view.jsx",
-                                lineNumber: 21
+                                lineNumber: 26
                             },
                             __self: this,
                             children: "Description: "
@@ -45234,7 +45251,7 @@ class GenreView extends _reactDefault.default.Component {
                             xs: 8,
                             __source: {
                                 fileName: "src/components/genre-view/genre-view.jsx",
-                                lineNumber: 22
+                                lineNumber: 27
                             },
                             __self: this,
                             children: genre.Description
@@ -45249,7 +45266,7 @@ class GenreView extends _reactDefault.default.Component {
                     variant: "warning",
                     __source: {
                         fileName: "src/components/genre-view/genre-view.jsx",
-                        lineNumber: 26
+                        lineNumber: 31
                     },
                     __self: this,
                     children: "Back"
@@ -45282,15 +45299,20 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "ProfileView", ()=>ProfileView
 );
 var _jsxRuntime = require("react/jsx-runtime");
+// React imports
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+// React Bootstrap imports
+var _reactBootstrap = require("react-bootstrap");
+// Other imports
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
-var _reactBootstrap = require("react-bootstrap");
+// Component imports
 var _favouriteMoviesView = require("./favourite-movies-view");
 var _updateView = require("./update-view");
+// Stylesheet imports
 var _profileViewScss = require("./profile-view.scss");
 var _s = $RefreshSig$();
 function ProfileView(props) {
@@ -45342,20 +45364,20 @@ function ProfileView(props) {
         id: "profile-form",
         __source: {
             fileName: "src/components/profile-view/profile-view.jsx",
-            lineNumber: 62
+            lineNumber: 68
         },
         __self: this,
         children: [
             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 63
+                    lineNumber: 69
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsx("h3", {
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 64
+                        lineNumber: 70
                     },
                     __self: this,
                     children: "Your profile"
@@ -45364,7 +45386,7 @@ function ProfileView(props) {
             /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Row, {
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 66
+                    lineNumber: 72
                 },
                 __self: this,
                 children: [
@@ -45376,7 +45398,7 @@ function ProfileView(props) {
                         className: "label",
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 67
+                            lineNumber: 73
                         },
                         __self: this,
                         children: "Username:"
@@ -45389,7 +45411,7 @@ function ProfileView(props) {
                         className: "value",
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 70
+                            lineNumber: 76
                         },
                         __self: this,
                         children: user.Username
@@ -45400,7 +45422,7 @@ function ProfileView(props) {
                 className: "mt-3",
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 74
+                    lineNumber: 80
                 },
                 __self: this,
                 children: [
@@ -45412,7 +45434,7 @@ function ProfileView(props) {
                         className: "label",
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 75
+                            lineNumber: 81
                         },
                         __self: this,
                         children: "Password:"
@@ -45425,7 +45447,7 @@ function ProfileView(props) {
                         className: "value",
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 78
+                            lineNumber: 84
                         },
                         __self: this,
                         children: "******"
@@ -45436,7 +45458,7 @@ function ProfileView(props) {
                 className: "mt-3",
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 82
+                    lineNumber: 88
                 },
                 __self: this,
                 children: [
@@ -45448,7 +45470,7 @@ function ProfileView(props) {
                         className: "label",
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 83
+                            lineNumber: 89
                         },
                         __self: this,
                         children: "Email:"
@@ -45461,7 +45483,7 @@ function ProfileView(props) {
                         className: "value",
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 86
+                            lineNumber: 92
                         },
                         __self: this,
                         children: user.Email
@@ -45472,7 +45494,7 @@ function ProfileView(props) {
                 className: "mt-3",
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 90
+                    lineNumber: 96
                 },
                 __self: this,
                 children: [
@@ -45484,7 +45506,7 @@ function ProfileView(props) {
                         className: "label",
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 91
+                            lineNumber: 97
                         },
                         __self: this,
                         children: "Birthday:"
@@ -45497,7 +45519,7 @@ function ProfileView(props) {
                         className: "value",
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 94
+                            lineNumber: 100
                         },
                         __self: this,
                         children: birthdayDate()
@@ -45508,13 +45530,13 @@ function ProfileView(props) {
                 className: "mt-5",
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 98
+                    lineNumber: 104
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsx("h3", {
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 99
+                        lineNumber: 105
                     },
                     __self: this,
                     children: "Your favorite movies"
@@ -45524,7 +45546,7 @@ function ProfileView(props) {
                 className: "mt-3",
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 101
+                    lineNumber: 107
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsx(_favouriteMoviesView.FavouriteMoviesView, {
@@ -45534,7 +45556,7 @@ function ProfileView(props) {
                     token: token,
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 102
+                        lineNumber: 108
                     },
                     __self: this
                 })
@@ -45543,7 +45565,7 @@ function ProfileView(props) {
                 user: user,
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 109
+                    lineNumber: 115
                 },
                 __self: this
             }),
@@ -45553,7 +45575,7 @@ function ProfileView(props) {
                 onClick: handleDelete,
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 110
+                    lineNumber: 116
                 },
                 __self: this,
                 children: "Delete profile"
@@ -45591,13 +45613,17 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "UpdateView", ()=>UpdateView
 );
 var _jsxRuntime = require("react/jsx-runtime");
+// React imports
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+// React Bootstrap imports
+var _reactBootstrap = require("react-bootstrap");
+// Other imports
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
-var _reactBootstrap = require("react-bootstrap");
+// Stylesheet imports
 var _profileViewScss = require("./profile-view.scss");
 var _s = $RefreshSig$();
 function UpdateView(props) {
@@ -45685,20 +45711,20 @@ function UpdateView(props) {
         className: "mt-5",
         __source: {
             fileName: "src/components/profile-view/update-view.jsx",
-            lineNumber: 85
+            lineNumber: 89
         },
         __self: this,
         children: [
             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
                 __source: {
                     fileName: "src/components/profile-view/update-view.jsx",
-                    lineNumber: 86
+                    lineNumber: 90
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsx("h3", {
                     __source: {
                         fileName: "src/components/profile-view/update-view.jsx",
-                        lineNumber: 87
+                        lineNumber: 91
                     },
                     __self: this,
                     children: "Edit profile"
@@ -45707,22 +45733,22 @@ function UpdateView(props) {
             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
                 __source: {
                     fileName: "src/components/profile-view/update-view.jsx",
-                    lineNumber: 89
+                    lineNumber: 93
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
-                    sm: "10",
-                    md: "8",
-                    lg: "6",
+                    sm: 10,
+                    md: 8,
+                    lg: 6,
                     __source: {
                         fileName: "src/components/profile-view/update-view.jsx",
-                        lineNumber: 90
+                        lineNumber: 94
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form, {
                         __source: {
                             fileName: "src/components/profile-view/update-view.jsx",
-                            lineNumber: 91
+                            lineNumber: 95
                         },
                         __self: this,
                         children: [
@@ -45730,14 +45756,14 @@ function UpdateView(props) {
                                 controlId: "formUsername",
                                 __source: {
                                     fileName: "src/components/profile-view/update-view.jsx",
-                                    lineNumber: 92
+                                    lineNumber: 96
                                 },
                                 __self: this,
                                 children: [
                                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                                         __source: {
                                             fileName: "src/components/profile-view/update-view.jsx",
-                                            lineNumber: 93
+                                            lineNumber: 97
                                         },
                                         __self: this,
                                         children: "Username:"
@@ -45751,14 +45777,14 @@ function UpdateView(props) {
                                         required: true,
                                         __source: {
                                             fileName: "src/components/profile-view/update-view.jsx",
-                                            lineNumber: 94
+                                            lineNumber: 98
                                         },
                                         __self: this
                                     }),
                                     values.usernameErr && /*#__PURE__*/ _jsxRuntime.jsx("p", {
                                         __source: {
                                             fileName: "src/components/profile-view/update-view.jsx",
-                                            lineNumber: 102
+                                            lineNumber: 106
                                         },
                                         __self: this,
                                         children: values.usernameErr
@@ -45770,14 +45796,14 @@ function UpdateView(props) {
                                 className: "mt-3",
                                 __source: {
                                     fileName: "src/components/profile-view/update-view.jsx",
-                                    lineNumber: 104
+                                    lineNumber: 108
                                 },
                                 __self: this,
                                 children: [
                                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                                         __source: {
                                             fileName: "src/components/profile-view/update-view.jsx",
-                                            lineNumber: 105
+                                            lineNumber: 109
                                         },
                                         __self: this,
                                         children: "Password:"
@@ -45791,14 +45817,14 @@ function UpdateView(props) {
                                         required: true,
                                         __source: {
                                             fileName: "src/components/profile-view/update-view.jsx",
-                                            lineNumber: 106
+                                            lineNumber: 110
                                         },
                                         __self: this
                                     }),
                                     values.passwordErr && /*#__PURE__*/ _jsxRuntime.jsx("p", {
                                         __source: {
                                             fileName: "src/components/profile-view/update-view.jsx",
-                                            lineNumber: 114
+                                            lineNumber: 118
                                         },
                                         __self: this,
                                         children: values.passwordErr
@@ -45810,14 +45836,14 @@ function UpdateView(props) {
                                 className: "mt-3",
                                 __source: {
                                     fileName: "src/components/profile-view/update-view.jsx",
-                                    lineNumber: 116
+                                    lineNumber: 120
                                 },
                                 __self: this,
                                 children: [
                                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                                         __source: {
                                             fileName: "src/components/profile-view/update-view.jsx",
-                                            lineNumber: 117
+                                            lineNumber: 121
                                         },
                                         __self: this,
                                         children: "Email:"
@@ -45827,18 +45853,18 @@ function UpdateView(props) {
                                         value: email,
                                         onChange: (e)=>setEmail(e.target.value)
                                         ,
-                                        placeholder: "your@mail.com",
+                                        placeholder: "yourmail@mail.com",
                                         required: true,
                                         __source: {
                                             fileName: "src/components/profile-view/update-view.jsx",
-                                            lineNumber: 118
+                                            lineNumber: 122
                                         },
                                         __self: this
                                     }),
                                     values.emailErr && /*#__PURE__*/ _jsxRuntime.jsx("p", {
                                         __source: {
                                             fileName: "src/components/profile-view/update-view.jsx",
-                                            lineNumber: 126
+                                            lineNumber: 130
                                         },
                                         __self: this,
                                         children: values.emailErr
@@ -45850,27 +45876,27 @@ function UpdateView(props) {
                                 className: "mt-3",
                                 __source: {
                                     fileName: "src/components/profile-view/update-view.jsx",
-                                    lineNumber: 128
+                                    lineNumber: 132
                                 },
                                 __self: this,
                                 children: [
                                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                                         __source: {
                                             fileName: "src/components/profile-view/update-view.jsx",
-                                            lineNumber: 129
+                                            lineNumber: 133
                                         },
                                         __self: this,
                                         children: "Birthday:"
                                     }),
                                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
-                                        type: "text",
+                                        type: "date",
                                         value: birthday,
                                         onChange: (e)=>setBirthday(e.target.value)
                                         ,
                                         placeholder: "YYYY-MM-DD",
                                         __source: {
                                             fileName: "src/components/profile-view/update-view.jsx",
-                                            lineNumber: 130
+                                            lineNumber: 134
                                         },
                                         __self: this
                                     })
@@ -45881,7 +45907,7 @@ function UpdateView(props) {
                                 className: "mt-4",
                                 __source: {
                                     fileName: "src/components/profile-view/update-view.jsx",
-                                    lineNumber: 137
+                                    lineNumber: 141
                                 },
                                 __self: this,
                                 children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
@@ -45890,7 +45916,7 @@ function UpdateView(props) {
                                     onClick: handleSubmit,
                                     __source: {
                                         fileName: "src/components/profile-view/update-view.jsx",
-                                        lineNumber: 138
+                                        lineNumber: 142
                                     },
                                     __self: this,
                                     children: "Edit profile"
@@ -45933,14 +45959,18 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "FavouriteMoviesView", ()=>FavouriteMoviesView
 );
 var _jsxRuntime = require("react/jsx-runtime");
+// React imports
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRouterDom = require("react-router-dom");
+// React Bootstrap imports
+var _reactBootstrap = require("react-bootstrap");
+// Other imports
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
-var _reactRouterDom = require("react-router-dom");
-var _reactBootstrap = require("react-bootstrap");
+// Stylesheet imports
 var _profileViewScss = require("./profile-view.scss");
 function FavouriteMoviesView(props) {
     const { movies , favouriteMovies , currentUser , token  } = props;
@@ -45965,13 +45995,13 @@ function FavouriteMoviesView(props) {
     return(/*#__PURE__*/ _jsxRuntime.jsx(_react.Fragment, {
         __source: {
             fileName: "src/components/profile-view/favourite-movies-view.jsx",
-            lineNumber: 35
+            lineNumber: 40
         },
         __self: this,
         children: favouriteMoviesList.length === 0 ? /*#__PURE__*/ _jsxRuntime.jsx("p", {
             __source: {
                 fileName: "src/components/profile-view/favourite-movies-view.jsx",
-                lineNumber: 37
+                lineNumber: 42
             },
             __self: this,
             children: "You have no favourite movies yet."
@@ -45984,14 +46014,14 @@ function FavouriteMoviesView(props) {
                 className: "mb-4",
                 __source: {
                     fileName: "src/components/profile-view/favourite-movies-view.jsx",
-                    lineNumber: 41
+                    lineNumber: 46
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card, {
                     id: "movie-card",
                     __source: {
                         fileName: "src/components/profile-view/favourite-movies-view.jsx",
-                        lineNumber: 42
+                        lineNumber: 47
                     },
                     __self: this,
                     children: [
@@ -45999,7 +46029,7 @@ function FavouriteMoviesView(props) {
                             to: `/movies/${movie._id}`,
                             __source: {
                                 fileName: "src/components/profile-view/favourite-movies-view.jsx",
-                                lineNumber: 43
+                                lineNumber: 48
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Img, {
@@ -46009,7 +46039,7 @@ function FavouriteMoviesView(props) {
                                 crossOrigin: "anonymous",
                                 __source: {
                                     fileName: "src/components/profile-view/favourite-movies-view.jsx",
-                                    lineNumber: 44
+                                    lineNumber: 49
                                 },
                                 __self: this
                             })
@@ -46017,14 +46047,14 @@ function FavouriteMoviesView(props) {
                         /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Body, {
                             __source: {
                                 fileName: "src/components/profile-view/favourite-movies-view.jsx",
-                                lineNumber: 51
+                                lineNumber: 56
                             },
                             __self: this,
                             children: [
                                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Title, {
                                     __source: {
                                         fileName: "src/components/profile-view/favourite-movies-view.jsx",
-                                        lineNumber: 52
+                                        lineNumber: 57
                                     },
                                     __self: this,
                                     children: movie.Title
@@ -46032,7 +46062,7 @@ function FavouriteMoviesView(props) {
                                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Text, {
                                     __source: {
                                         fileName: "src/components/profile-view/favourite-movies-view.jsx",
-                                        lineNumber: 53
+                                        lineNumber: 58
                                     },
                                     __self: this,
                                     children: movie.Description
@@ -46041,7 +46071,7 @@ function FavouriteMoviesView(props) {
                                     to: `/movies/${movie._id}`,
                                     __source: {
                                         fileName: "src/components/profile-view/favourite-movies-view.jsx",
-                                        lineNumber: 54
+                                        lineNumber: 59
                                     },
                                     __self: this,
                                     children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
@@ -46050,7 +46080,7 @@ function FavouriteMoviesView(props) {
                                         size: "sm",
                                         __source: {
                                             fileName: "src/components/profile-view/favourite-movies-view.jsx",
-                                            lineNumber: 55
+                                            lineNumber: 60
                                         },
                                         __self: this,
                                         children: "Open"
@@ -46065,7 +46095,7 @@ function FavouriteMoviesView(props) {
                                     },
                                     __source: {
                                         fileName: "src/components/profile-view/favourite-movies-view.jsx",
-                                        lineNumber: 63
+                                        lineNumber: 68
                                     },
                                     __self: this,
                                     children: "Remove"
@@ -47833,37 +47863,22 @@ var _jsxRuntime = require("react/jsx-runtime");
 // React imports
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRouterDom = require("react-router-dom");
 // React Bootstrap imports
 var _reactBootstrap = require("react-bootstrap");
-var _axios = require("axios");
-var _axiosDefault = parcelHelpers.interopDefault(_axios);
-var _reactRouterDom = require("react-router-dom");
 // Other imports
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+// Stylesheet imports
 var _movieCardScss = require("./movie-card.scss");
 class MovieCard extends _reactDefault.default.Component {
-    //   render() {
-    //     const { movie, onMovieClick } = this.props;
-    //     return (
-    //       <Card>
-    //         <Card.Img variant="top" src={movie.ImageURL} crossOrigin="anonymous" />
-    //         <Card.Body>
-    //           <Card.Title>{movie.Title}</Card.Title>
-    //           <Card.Text>{movie.Description}</Card.Text>
-    //           <Button onClick={() => onMovieClick(movie)} variant="link">
-    //             Open
-    //           </Button>
-    //         </Card.Body>
-    //       </Card>
-    //     );
-    //   }
-    // }
     async addToFavoriteList(movieId) {
         const currentUser = localStorage.getItem('user');
         const token = localStorage.getItem('token');
         try {
-            let response = await _axiosDefault.default.put(`      .get('https://patricklemmer-myflix.herokuapp.com/movies', {\n        /users/${currentUser}/movies/${movieId}`, {
+            let response = await _axiosDefault.default.put(`https://patricklemmer-myflix.herokuapp.com/users/${currentUser}/movies/${movieId}`, {
             }, {
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -47880,7 +47895,7 @@ class MovieCard extends _reactDefault.default.Component {
             id: "movie-card",
             __source: {
                 fileName: "src/components/movie-card/movie-card.jsx",
-                lineNumber: 57
+                lineNumber: 38
             },
             __self: this,
             children: [
@@ -47888,7 +47903,7 @@ class MovieCard extends _reactDefault.default.Component {
                     to: `/movies/${movie._id}`,
                     __source: {
                         fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 58
+                        lineNumber: 39
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Img, {
@@ -47898,7 +47913,7 @@ class MovieCard extends _reactDefault.default.Component {
                         crossOrigin: "anonymous",
                         __source: {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 59
+                            lineNumber: 40
                         },
                         __self: this
                     })
@@ -47906,7 +47921,7 @@ class MovieCard extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Body, {
                     __source: {
                         fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 66
+                        lineNumber: 47
                     },
                     __self: this,
                     children: [
@@ -47914,7 +47929,7 @@ class MovieCard extends _reactDefault.default.Component {
                             id: "card-title",
                             __source: {
                                 fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 67
+                                lineNumber: 48
                             },
                             __self: this,
                             children: movie.Title
@@ -47923,7 +47938,7 @@ class MovieCard extends _reactDefault.default.Component {
                             className: "movie_description",
                             __source: {
                                 fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 68
+                                lineNumber: 49
                             },
                             __self: this,
                             children: movie.Description
@@ -47932,7 +47947,7 @@ class MovieCard extends _reactDefault.default.Component {
                             to: `/movies/${movie._id}`,
                             __source: {
                                 fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 71
+                                lineNumber: 52
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
@@ -47941,7 +47956,7 @@ class MovieCard extends _reactDefault.default.Component {
                                 size: "sm",
                                 __source: {
                                     fileName: "src/components/movie-card/movie-card.jsx",
-                                    lineNumber: 72
+                                    lineNumber: 53
                                 },
                                 __self: this,
                                 children: "Open"
@@ -47955,7 +47970,7 @@ class MovieCard extends _reactDefault.default.Component {
                             ,
                             __source: {
                                 fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 80
+                                lineNumber: 61
                             },
                             __self: this,
                             children: "Add"
@@ -47989,7 +48004,7 @@ MovieCard.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap":"h2YVd","axios":"iYoWk","react-router-dom":"cpyQW","prop-types":"1tgq3","./movie-card.scss":"cF5gT","@parcel/transformer-js/src/esmodule-helpers.js":"a2iz4","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"iiska"}],"cF5gT":[function() {},{}],"33z1V":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap":"h2YVd","axios":"iYoWk","react-router-dom":"cpyQW","prop-types":"1tgq3","./movie-card.scss":"cF5gT","@parcel/transformer-js/src/esmodule-helpers.js":"a2iz4","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"iiska"}],"cF5gT":[function() {},{}],"jyMAr":[function() {},{}],"33z1V":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "ROUTES", ()=>ROUTES

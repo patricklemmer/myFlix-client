@@ -1,11 +1,15 @@
+// React imports
 import React, { useState } from 'react';
+
+// React Bootstrap imports
+import { Button, Col, Container, Form, Row } from 'react-bootstrap';
+
+// Other imports
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
-import { Button, Col, Container, Form, Row } from 'react-bootstrap';
-
+// Stylesheet imports
 import './profile-view.scss';
-
 export function UpdateView(props) {
   const { user } = props;
   const [username, setUsername] = useState('');
@@ -87,7 +91,7 @@ export function UpdateView(props) {
         <h3>Edit profile</h3>
       </Row>
       <Row>
-        <Col sm="10" md="8" lg="6">
+        <Col sm={10} md={8} lg={6}>
           <Form>
             <Form.Group controlId="formUsername">
               <Form.Label>Username:</Form.Label>
@@ -119,7 +123,7 @@ export function UpdateView(props) {
                 type="text"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="your@mail.com"
+                placeholder="yourmail@mail.com"
                 required
               />
               {/* display validation error */}
@@ -128,7 +132,7 @@ export function UpdateView(props) {
             <Form.Group controlId="formBirthday" className="mt-3">
               <Form.Label>Birthday:</Form.Label>
               <Form.Control
-                type="text"
+                type="date"
                 value={birthday}
                 onChange={(e) => setBirthday(e.target.value)}
                 placeholder="YYYY-MM-DD"

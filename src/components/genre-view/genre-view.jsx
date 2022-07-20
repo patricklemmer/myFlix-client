@@ -1,8 +1,13 @@
+// React imports
 import React from 'react';
-import PropTypes from 'prop-types';
 
+// React Bootstrap imports
 import { Button, Col, Container, Row } from 'react-bootstrap';
 
+// Other imports
+import PropTypes from 'prop-types';
+
+// Stylesheet imports
 import './genre-view.scss';
 
 export class GenreView extends React.Component {

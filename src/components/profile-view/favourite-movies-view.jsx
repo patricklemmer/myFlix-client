@@ -1,10 +1,15 @@
+// React imports
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+// React Bootstrap imports
 import { Button, Card, Col } from 'react-bootstrap';
 
+// Other imports
+import PropTypes from 'prop-types';
+import axios from 'axios';
+
+// Stylesheet imports
 import './profile-view.scss';
 
 export function FavouriteMoviesView(props) {

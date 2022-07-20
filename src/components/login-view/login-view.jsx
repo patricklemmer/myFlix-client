@@ -9,7 +9,7 @@ import { Container, Row, Col, Button, Form } from 'react-bootstrap';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 
-// Stylesheet import
+// Stylesheet imports
 import './login-view.scss';
 
 // Begin component
@@ -67,7 +67,7 @@ export function LoginView(props) {
         <h2>Log in to myFlix</h2>
       </Row>
       <Row className="justify-content-center mt-3">
-        <Col sm="10" md="8" lg="6">
+        <Col sm={10} md={8} lg={6}>
           <Form>
             <Form.Group controlId="formUsername">
               <Form.Label>Username:</Form.Label>
@@ -90,7 +90,7 @@ export function LoginView(props) {
               {passwordErr && <p>{passwordErr}</p>}
             </Form.Group>
             <Row className="mt-4 justify-content-start">
-              <Col sm="10" md="8" lg="6">
+              <Col sm={10} md={8} lg={6}>
                 <Button variant="warning" type="submit" onClick={handleSubmit}>
                   Login
                 </Button>

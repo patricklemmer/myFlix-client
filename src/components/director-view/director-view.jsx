@@ -1,8 +1,13 @@
+//React imports
 import React from 'react';
-import PropTypes from 'prop-types';
 
+// React Bootstrap imports
 import { Button, Col, Container, Row, Col } from 'react-bootstrap';
 
+// Other imports
+import PropTypes from 'prop-types';
+
+// Stylesheet imports
 import './director-view.scss';
 
 export class DirectorView extends React.Component {

@@ -1,12 +1,15 @@
 * {
-  font-family: Raleway, sans-serif;
-  line-height: 1.8;
-}
-
-.container {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  max-width: 100%;
+}
+
+.app-container {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.8;
+  background-color: #f6f0da;
+  width: 100vw;
+  height: 100vh;
 }
 .movie-view {
   color: rgb(245, 245, 245);
@@ -43,22 +46,34 @@ a {
   width: 70%;
 }
 #registration-form {
-  background-color: rgba(9, 27, 73, 0.8);
-  border-radius: 10px;
-  color: rgb(245, 245, 245);
+  height: 100%;
+  background-color: #d7cca7;
+  border-radius: 5px;
+  color: #111;
+  padding: 30px;
+  width: 50%;
+}
+
+#registration-form h2 {
+  text-align: center;
+}
+.navbar {
+  background-color: #f79f7e;
   padding: 30px;
 }
+
 .navbar-light .navbar-nav .nav-link {
-  color: rgb(9, 27, 73);
+  color: #111;
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
-  color: rgb(21, 75, 211);
+  color: rgb(62, 62, 62);
   font-weight: 700;
 }
 
 .navbar h1 {
   font-weight: 700;
+  color: white;
 }
 .director-view {
   color: rgb(245, 245, 245);
@@ -104,10 +119,61 @@ a {
   bottom: 20px;
   padding: 5px 8px;
 }
-.movie_description {
-  white-space: nowrap;
-  width: 150px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.main-view {
+  row-gap: 30px;
+}
+
+#movie-card {
+  background-color: rgb(245, 245, 245);
+  color: rgb(9, 27, 73);
+  height: 100%;
+}
+
+#card-title {
+  font-weight: bold;
+}
+
+.card-text {
+  margin-bottom: 50px;
+}
+
+.card-img {
+  width: 100%;
+  height: 30vw;
+  min-height: 350px;
+  object-fit: cover;
+}
+
+.button {
+  border: 1px solid rgb(9, 27, 73);
+  color: rgb(9, 27, 73);
+}
+.button:hover {
+  background-color: rgb(9, 27, 73);
+  border: 1px solid rgb(9, 27, 73);
+  color: rgb(245, 245, 245);
+}
+.button:active {
+  background-color: rgb(28, 57, 128) !important;
+  color: rgb(245, 245, 245);
+}
+
+.btn-open {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  padding: 5px 8px;
+}
+
+.btn-add {
+  position: absolute;
+  left: 80px;
+  bottom: 20px;
+  padding: 5px 8px;
+}
+.main-view {
+  margin: 0 5%;
+  min-height: 100vh;
+  margin-bottom: 50px;
 }
 /*# sourceMappingURL=index.caa67093.css.map */

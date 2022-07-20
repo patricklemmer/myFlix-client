@@ -1,6 +1,52 @@
-.movie_description {
-  white-space: nowrap;
-  width: 150px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.main-view {
+  row-gap: 30px;
+}
+
+#movie-card {
+  background-color: rgb(245, 245, 245);
+  color: rgb(9, 27, 73);
+  height: 100%;
+}
+
+#card-title {
+  font-weight: bold;
+}
+
+.card-text {
+  margin-bottom: 50px;
+}
+
+.card-img {
+  width: 100%;
+  height: 30vw;
+  min-height: 350px;
+  object-fit: cover;
+}
+
+.button {
+  border: 1px solid rgb(9, 27, 73);
+  color: rgb(9, 27, 73);
+  &:hover {
+    background-color: rgb(9, 27, 73);
+    border: 1px solid rgb(9, 27, 73);
+    color: rgb(245, 245, 245);
+  }
+  &:active {
+    background-color: rgb(28, 57, 128) !important;
+    color: rgb(245, 245, 245);
+  }
+}
+
+.btn-open {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  padding: 5px 8px;
+}
+
+.btn-add {
+  position: absolute;
+  left: 80px;
+  bottom: 20px;
+  padding: 5px 8px;
 }

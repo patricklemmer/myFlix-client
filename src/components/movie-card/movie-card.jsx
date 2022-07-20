@@ -1,44 +1,25 @@
 // React imports
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // React Bootstrap imports
 import { Button, Card } from 'react-bootstrap';
 
-import axios from 'axios';
-
-import { Link } from 'react-router-dom';
-
 // Other imports
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
+// Stylesheet imports
 import './movie-card.scss';
 
 // Begin component
 export class MovieCard extends React.Component {
-  //   render() {
-  //     const { movie, onMovieClick } = this.props;
-  //     return (
-  //       <Card>
-  //         <Card.Img variant="top" src={movie.ImageURL} crossOrigin="anonymous" />
-  //         <Card.Body>
-  //           <Card.Title>{movie.Title}</Card.Title>
-  //           <Card.Text>{movie.Description}</Card.Text>
-  //           <Button onClick={() => onMovieClick(movie)} variant="link">
-  //             Open
-  //           </Button>
-  //         </Card.Body>
-  //       </Card>
-  //     );
-  //   }
-  // }
-
   async addToFavoriteList(movieId) {
     const currentUser = localStorage.getItem('user');
     const token = localStorage.getItem('token');
     try {
       let response = await axios.put(
-        `      .get('https://patricklemmer-myflix.herokuapp.com/movies', {
-        /users/${currentUser}/movies/${movieId}`,
+        `https://patricklemmer-myflix.herokuapp.com/users/${currentUser}/movies/${movieId}`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },

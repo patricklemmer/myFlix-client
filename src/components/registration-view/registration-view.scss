@@ -1,6 +1,12 @@
 #registration-form {
-  background-color: rgb(9, 27, 73, 0.8);
-  border-radius: 10px;
-  color: rgb(245, 245, 245);
+  height: 100%;
+  background-color: #d7cca7;
+  border-radius: 5px;
+  color: #111;
   padding: 30px;
+  width: 50%;
+}
+
+#registration-form h2 {
+  text-align: center;
 }

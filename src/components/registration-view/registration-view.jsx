@@ -1,7 +1,9 @@
 // React imports
 import React, { useState } from 'react';
-import { Container, Row, Col, Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+
+// React Bootstrap imports
+import { Container, Row, Col, Button, Form } from 'react-bootstrap';
 
 // Other imports
 import PropTypes from 'prop-types';
@@ -9,8 +11,6 @@ import axios from 'axios';
 
 // Stylesheet import
 import './registration-view.scss';
-
-// Begin component
 export function RegistrationView(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -84,7 +84,7 @@ export function RegistrationView(props) {
   };
 
   return (
-    <>
+    <Container id="registration-form">
       <Row className="justify-content-center">
         <h2>Sign up for myFlix</h2>
       </Row>
@@ -150,7 +150,7 @@ export function RegistrationView(props) {
           </Form>
         </Col>
       </Row>
-    </>
+    </Container>
   );
 }
 

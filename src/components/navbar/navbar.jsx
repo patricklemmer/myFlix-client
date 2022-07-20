@@ -1,6 +1,10 @@
+// React imports
 import React, { Fragment } from 'react';
+
+// React Bootstrap imports
 import { Navbar as NavbarBootstrap, Nav } from 'react-bootstrap';
 
+// Stylesheet imports
 import './navbar.scss';
 
 export function Navbar({ user }) {
@@ -19,7 +23,7 @@ export function Navbar({ user }) {
   };
 
   return (
-    <NavbarBootstrap bg="light" expand="lg" className="mb-5">
+    <NavbarBootstrap expand="lg" className="mb-5 navbar">
       <NavbarBootstrap.Brand href="/">
         <h1>myFlix</h1>
       </NavbarBootstrap.Brand>

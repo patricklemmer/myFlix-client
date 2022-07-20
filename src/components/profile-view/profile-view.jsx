@@ -1,12 +1,18 @@
+// React imports
 import React, { useState, useEffect } from 'react';
+
+// React Bootstrap imports
+import { Button, Col, Container, Row } from 'react-bootstrap';
+
+// Other imports
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
-import { Button, Col, Container, Row } from 'react-bootstrap';
-
+// Component imports
 import { FavouriteMoviesView } from './favourite-movies-view';
 import { UpdateView } from './update-view';
 
+// Stylesheet imports
 import './profile-view.scss';
 
 export function ProfileView(props) {

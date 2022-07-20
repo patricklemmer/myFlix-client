@@ -8,6 +8,7 @@ import { Button, Col, Container, Row } from 'react-bootstrap';
 // Other imports
 import PropTypes from 'prop-types';
 
+// Stylesheet imports
 import './movie-view.scss';
 
 export class MovieView extends React.Component {
