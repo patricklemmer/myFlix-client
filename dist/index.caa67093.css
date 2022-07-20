@@ -1,15 +1,27 @@
+:root {
+  --background-color: #e5d8b8;
+  --background-color-nav: #e5d8b8;
+  --text-color: #111;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+html {
+  height: 100vh;
+  width: 100vw;
+}
+
 .app-container {
   font-family: "Poppins", sans-serif;
   line-height: 1.8;
-  background-color: #f6f0da;
-  width: 100vw;
-  height: 100vh;
+  background-color: var(--background-color);
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-bottom: 1%;
 }
 .movie-view {
   color: rgb(245, 245, 245);
@@ -38,42 +50,35 @@ a {
   text-decoration: inherit !important;
 }
 #login-form {
-  background-color: rgba(9, 27, 73, 0.8);
-  border-radius: 10px;
-  color: rgb(245, 245, 245);
+  background-color: var(--background-color);
+  color: var(--text-color);
   margin: 0 auto;
   padding: 30px;
   width: 70%;
 }
+
+#login-form h2 {
+  text-align: center;
+}
 #registration-form {
-  height: 100%;
-  background-color: #d7cca7;
-  border-radius: 5px;
-  color: #111;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0 auto;
   padding: 30px;
-  width: 50%;
+  width: 70%;
 }
 
 #registration-form h2 {
   text-align: center;
 }
 .navbar {
-  background-color: #f79f7e;
+  background-color: var(--background-color-nav);
   padding: 30px;
-}
-
-.navbar-light .navbar-nav .nav-link {
-  color: #111;
-}
-
-.navbar-light .navbar-nav .nav-link:hover {
-  color: rgb(62, 62, 62);
-  font-weight: 700;
 }
 
 .navbar h1 {
   font-weight: 700;
-  color: white;
+  color: #fff;
 }
 .director-view {
   color: rgb(245, 245, 245);
@@ -121,11 +126,12 @@ a {
 }
 .main-view {
   row-gap: 30px;
+  outline: 3px solid green;
 }
 
 #movie-card {
-  background-color: rgb(245, 245, 245);
-  color: rgb(9, 27, 73);
+  background-color: var(--background-color);
+  color: var(--text-color);
   height: 100%;
 }
 

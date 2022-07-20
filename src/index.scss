@@ -1,13 +1,25 @@
+:root {
+  --background-color: #e5d8b8;
+  --background-color-nav: #e5d8b8;
+  --text-color: #111;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+html {
+  height: 100vh;
+  width: 100vw;
+}
+
 .app-container {
   font-family: 'Poppins', sans-serif;
   line-height: 1.8;
-  background-color: #f6f0da;
-  width: 100vw;
-  height: 100vh;
+  background-color: var(--background-color);
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-bottom: 1%;
 }

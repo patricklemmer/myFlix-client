@@ -86,7 +86,7 @@ export function RegistrationView(props) {
   return (
     <Container id="registration-form">
       <Row className="justify-content-center">
-        <h2>Sign up for myFlix</h2>
+        <h2>Sign up</h2>
       </Row>
       <Row className="justify-content-center mt-3">
         <Col sm={10} md={8} lg={6}>

@@ -44303,7 +44303,7 @@ function LoginView(props) {
                         lineNumber: 67
                     },
                     __self: this,
-                    children: "Log in to myFlix"
+                    children: "Log in"
                 })
             }),
             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
@@ -44577,7 +44577,7 @@ function RegistrationView(props) {
                         lineNumber: 89
                     },
                     __self: this,
-                    children: "Sign up for myFlix"
+                    children: "Sign up"
                 })
             }),
             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
@@ -44852,6 +44852,10 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 // React Bootstrap imports
 var _reactBootstrap = require("react-bootstrap");
+var _container = require("react-bootstrap/Container");
+var _containerDefault = parcelHelpers.interopDefault(_container);
+var _navbar = require("react-bootstrap/Navbar");
+var _navbarDefault = parcelHelpers.interopDefault(_navbar);
 // Stylesheet imports
 var _navbarScss = require("./navbar.scss");
 function Navbar({ user  }) {
@@ -44864,123 +44868,138 @@ function Navbar({ user  }) {
         localStorage.clear();
         window.open('/', '_self');
     };
-    return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Navbar, {
+    return(/*#__PURE__*/ _jsxRuntime.jsx(_navbarDefault.default, {
+        className: "mb-5",
         expand: "lg",
-        className: "mb-5 navbar",
         __source: {
             fileName: "src/components/navbar/navbar.jsx",
-            lineNumber: 26
+            lineNumber: 28
         },
         __self: this,
-        children: [
-            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar.Brand, {
-                href: "/",
-                __source: {
-                    fileName: "src/components/navbar/navbar.jsx",
-                    lineNumber: 27
-                },
-                __self: this,
-                children: /*#__PURE__*/ _jsxRuntime.jsx("h1", {
+        children: /*#__PURE__*/ _jsxRuntime.jsxs(_containerDefault.default, {
+            __source: {
+                fileName: "src/components/navbar/navbar.jsx",
+                lineNumber: 29
+            },
+            __self: this,
+            children: [
+                /*#__PURE__*/ _jsxRuntime.jsxs(_navbarDefault.default.Brand, {
+                    href: "/",
                     __source: {
                         fileName: "src/components/navbar/navbar.jsx",
-                        lineNumber: 28
-                    },
-                    __self: this,
-                    children: "myFlix"
-                })
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar.Toggle, {
-                "aria-controls": "navbar-nav",
-                __source: {
-                    fileName: "src/components/navbar/navbar.jsx",
-                    lineNumber: 30
-                },
-                __self: this
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar.Collapse, {
-                __source: {
-                    fileName: "src/components/navbar/navbar.jsx",
-                    lineNumber: 31
-                },
-                __self: this,
-                children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Nav, {
-                    className: "me-auto",
-                    __source: {
-                        fileName: "src/components/navbar/navbar.jsx",
-                        lineNumber: 32
+                        lineNumber: 30
                     },
                     __self: this,
                     children: [
-                        isAuth() && /*#__PURE__*/ _jsxRuntime.jsxs(_react.Fragment, {
+                        /*#__PURE__*/ _jsxRuntime.jsx("img", {
+                            alt: "Myflix logo",
+                            src: "../../assets/logo.svg",
+                            width: "30",
+                            height: "30",
                             __source: {
                                 fileName: "src/components/navbar/navbar.jsx",
-                                lineNumber: 34
+                                lineNumber: 31
                             },
-                            __self: this,
-                            children: [
-                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
-                                    href: "/",
-                                    __source: {
-                                        fileName: "src/components/navbar/navbar.jsx",
-                                        lineNumber: 35
-                                    },
-                                    __self: this,
-                                    children: "Home"
-                                }),
-                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
-                                    href: `/users/${user}`,
-                                    __source: {
-                                        fileName: "src/components/navbar/navbar.jsx",
-                                        lineNumber: 36
-                                    },
-                                    __self: this,
-                                    children: "Profile"
-                                }),
-                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
-                                    onClick: onLoggedOut,
-                                    __source: {
-                                        fileName: "src/components/navbar/navbar.jsx",
-                                        lineNumber: 37
-                                    },
-                                    __self: this,
-                                    children: "Sign-out"
-                                })
-                            ]
+                            __self: this
                         }),
-                        !isAuth() && /*#__PURE__*/ _jsxRuntime.jsxs(_react.Fragment, {
-                            __source: {
-                                fileName: "src/components/navbar/navbar.jsx",
-                                lineNumber: 41
-                            },
-                            __self: this,
-                            children: [
-                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
-                                    href: '/',
-                                    __source: {
-                                        fileName: "src/components/navbar/navbar.jsx",
-                                        lineNumber: 42
-                                    },
-                                    __self: this,
-                                    children: "Sign-in"
-                                }),
-                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
-                                    href: '/users',
-                                    __source: {
-                                        fileName: "src/components/navbar/navbar.jsx",
-                                        lineNumber: 43
-                                    },
-                                    __self: this,
-                                    children: "Sign-up"
-                                })
-                            ]
-                        })
+                        ' ',
+                        "Myflix"
                     ]
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsx(_navbarDefault.default.Toggle, {
+                    "aria-controls": "-basic-navbar-nav",
+                    __source: {
+                        fileName: "src/components/navbar/navbar.jsx",
+                        lineNumber: 39
+                    },
+                    __self: this
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsx(_navbarDefault.default.Collapse, {
+                    id: "basic-navbar-nav",
+                    __source: {
+                        fileName: "src/components/navbar/navbar.jsx",
+                        lineNumber: 40
+                    },
+                    __self: this,
+                    children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Nav, {
+                        className: "me-auto justify-content-end",
+                        __source: {
+                            fileName: "src/components/navbar/navbar.jsx",
+                            lineNumber: 41
+                        },
+                        __self: this,
+                        children: [
+                            isAuth() && /*#__PURE__*/ _jsxRuntime.jsxs(_react.Fragment, {
+                                __source: {
+                                    fileName: "src/components/navbar/navbar.jsx",
+                                    lineNumber: 43
+                                },
+                                __self: this,
+                                children: [
+                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
+                                        href: "/",
+                                        __source: {
+                                            fileName: "src/components/navbar/navbar.jsx",
+                                            lineNumber: 44
+                                        },
+                                        __self: this,
+                                        children: "Home"
+                                    }),
+                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
+                                        href: `/users/${user}`,
+                                        __source: {
+                                            fileName: "src/components/navbar/navbar.jsx",
+                                            lineNumber: 45
+                                        },
+                                        __self: this,
+                                        children: "Profile"
+                                    }),
+                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
+                                        onClick: onLoggedOut,
+                                        __source: {
+                                            fileName: "src/components/navbar/navbar.jsx",
+                                            lineNumber: 46
+                                        },
+                                        __self: this,
+                                        children: "Sign-out"
+                                    })
+                                ]
+                            }),
+                            !isAuth() && /*#__PURE__*/ _jsxRuntime.jsxs(_react.Fragment, {
+                                __source: {
+                                    fileName: "src/components/navbar/navbar.jsx",
+                                    lineNumber: 50
+                                },
+                                __self: this,
+                                children: [
+                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
+                                        href: '/',
+                                        __source: {
+                                            fileName: "src/components/navbar/navbar.jsx",
+                                            lineNumber: 51
+                                        },
+                                        __self: this,
+                                        children: "Sign-in"
+                                    }),
+                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
+                                        href: '/users',
+                                        __source: {
+                                            fileName: "src/components/navbar/navbar.jsx",
+                                            lineNumber: 52
+                                        },
+                                        __self: this,
+                                        children: "Sign-up"
+                                    })
+                                ]
+                            })
+                        ]
+                    })
                 })
-            })
-        ]
+            ]
+        })
     }));
 }
-_c = Navbar;
+_c = _navbarDefault.default;
 var _c;
 $RefreshReg$(_c, "Navbar");
 
@@ -44989,7 +45008,7 @@ $RefreshReg$(_c, "Navbar");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap":"h2YVd","./navbar.scss":"eqSoH","@parcel/transformer-js/src/esmodule-helpers.js":"a2iz4","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"iiska"}],"eqSoH":[function() {},{}],"ck15y":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap":"h2YVd","./navbar.scss":"eqSoH","@parcel/transformer-js/src/esmodule-helpers.js":"a2iz4","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"iiska","react-bootstrap/Container":"2PRIq","react-bootstrap/Navbar":"eYZQl"}],"eqSoH":[function() {},{}],"ck15y":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$f8cc = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

@@ -1,18 +1,18 @@
 .navbar {
-  background-color: #f79f7e;
+  background-color: var(--background-color-nav);
   padding: 30px;
 }
 
-.navbar-light .navbar-nav .nav-link {
-  color: #111;
-}
+// .navbar-light .navbar-nav .nav-link {
+//   color: var(--text-color);
+// }
 
-.navbar-light .navbar-nav .nav-link:hover {
-  color: rgb(62, 62, 62);
-  font-weight: 700;
-}
+// .navbar-nav .nav-link:hover {
+//   color: var(--text-color);
+//   font-weight: 800;
+// }
 
 .navbar h1 {
   font-weight: 700;
-  color: white;
+  color: #fff;
 }

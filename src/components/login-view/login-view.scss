@@ -1,8 +1,11 @@
 #login-form {
-  background-color: rgb(9, 27, 73, 0.8);
-  border-radius: 10px;
-  color: rgb(245, 245, 245);
+  background-color: var(--background-color);
+  color: var(--text-color);
   margin: 0 auto;
   padding: 30px;
   width: 70%;
+}
+
+#login-form h2 {
+  text-align: center;
 }

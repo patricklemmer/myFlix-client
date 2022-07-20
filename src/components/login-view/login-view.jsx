@@ -64,7 +64,7 @@ export function LoginView(props) {
   return (
     <Container id="login-form">
       <Row className="justify-content-center">
-        <h2>Log in to myFlix</h2>
+        <h2>Log in</h2>
       </Row>
       <Row className="justify-content-center mt-3">
         <Col sm={10} md={8} lg={6}>
