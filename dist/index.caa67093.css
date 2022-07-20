@@ -8,12 +8,6 @@
   padding: 0;
   max-width: 100%;
 }
-.movie_description {
-  white-space: nowrap;
-  width: 150px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
 .movie-view {
   color: rgb(245, 245, 245);
 }
@@ -109,5 +103,11 @@ a {
   left: 80px;
   bottom: 20px;
   padding: 5px 8px;
+}
+.movie_description {
+  white-space: nowrap;
+  width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 /*# sourceMappingURL=index.caa67093.css.map */

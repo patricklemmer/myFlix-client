@@ -6,32 +6,40 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 // React Bootstrap imports
 import Container from 'react-bootstrap/Container';
 
+//Redux imports
+import { legacy_createStore as createStore } from 'redux';
+import { Provider } from 'react-redux';
+import moviesApp from './reducers/reducers';
+import { devToolsEnhancer } from 'redux-devtools-extension';
+
 // Route imports
 import { ROUTES } from './routes.js';
 
 // Component imports
-import { MainView } from './components/main-view/main-view';
+import MainView from './components/main-view/main-view';
 import { RegistrationView } from './components/registration-view/registration-view';
-import { LoginView } from './components/login-view/login-view.jsx';
-import { ProfileView } from './components/profile-view/profile-view.jsx';
 
 // Import statement to indicate that you need to bundle `./index.scss`
 import './index.scss';
+
+const store = createStore(moviesApp, devToolsEnhancer());
 
 // Main component (will eventually use all the others)
 class MyFlixApplication extends React.Component {
   render() {
     return (
-      <Container>
-        <Router>
-          <Route exact path={ROUTES.HOME}>
-            <MainView />
-          </Route>
-          <Route path={ROUTES.REGISTER}>
-            <RegistrationView />
-          </Route>
-        </Router>
-      </Container>
+      <Provider store={store}>
+        <Container>
+          <Router>
+            <Route exact path={ROUTES.HOME}>
+              <MainView />
+            </Route>
+            <Route path={ROUTES.REGISTER}>
+              <RegistrationView />
+            </Route>
+          </Router>
+        </Container>
+      </Provider>
     );
   }
 }

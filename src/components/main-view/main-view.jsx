@@ -5,27 +5,28 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 // React Bootstrap imports
 import { Row, Col } from 'react-bootstrap';
 
+// Redux imports
+import { connect } from 'react-redux';
+import { setMovies, setUser } from '../../actions/actions';
+
 // Other imports
 import axios from 'axios';
 
 // Component imports
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
-import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { Navbar } from '../navbar/navbar';
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
 import { ProfileView } from '../profile-view/profile-view';
+import MoviesList from '../movies-list/movies-list';
 
-export class MainView extends React.Component {
+class MainView extends React.Component {
   constructor() {
     super();
     // Initial state is set to null
-    this.state = {
-      movies: [],
-      user: null,
-    };
+    this.state = {};
   }
 
   componentDidMount() {
@@ -39,20 +40,18 @@ export class MainView extends React.Component {
     }
   }
 
-  getMovies(token) {
-    axios
-      .get('https://patricklemmer-myflix.herokuapp.com/movies', {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((response) => {
-        // Assign the result to the state
-        this.setState({
-          movies: response.data,
-        });
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+  async getMovies(token) {
+    try {
+      let response = await axios.get(
+        'https://patricklemmer-myflix.herokuapp.com//movies',
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      this.props.setMovies(response.data);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   // When a user successfully logs in, this function updates the `user` property in state to that *particular user
@@ -68,7 +67,7 @@ export class MainView extends React.Component {
   }
 
   render() {
-    const { movies, user } = this.state;
+    const { movies, user } = this.props;
 
     return (
       <Router>
@@ -85,11 +84,7 @@ export class MainView extends React.Component {
                   </Col>
                 );
               if (movies.length === 0) return <div className="main-view" />;
-              return movies.map((m) => (
-                <Col md={3} key={m._id}>
-                  <MovieCard movie={m} />
-                </Col>
-              ));
+              return <MoviesList movies={movies} />;
             }}
           />
           <Route
@@ -196,3 +191,12 @@ export class MainView extends React.Component {
     );
   }
 }
+
+let mapStateToProps = (state) => {
+  return {
+    movies: state.movies,
+    user: state.user,
+  };
+};
+
+export default connect(mapStateToProps, { setMovies, setUser })(MainView);

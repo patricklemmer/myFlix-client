@@ -89,7 +89,7 @@ export function RegistrationView(props) {
         <h2>Sign up for myFlix</h2>
       </Row>
       <Row className="justify-content-center mt-3">
-        <Col sm="10" md="8" lg="6">
+        <Col sm={10} md={8} lg={6}>
           <Form>
             <Form.Group controlId="formUsername">
               <Form.Label>Username:</Form.Label>
@@ -137,7 +137,7 @@ export function RegistrationView(props) {
               />
             </Form.Group>
             <Row className="mt-4 justify-content-start">
-              <Col sm="10" md="8" lg="6">
+              <Col sm={10} md={8} lg={6}>
                 <Button variant="warning" type="submit" onClick={handleSubmit}>
                   Register
                 </Button>
