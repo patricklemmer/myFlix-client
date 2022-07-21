@@ -21,27 +21,34 @@ import { RegistrationView } from './components/registration-view/registration-vi
 
 // Import statement to indicate that you need to bundle `./index.scss`
 import './index.scss';
+import { ProfileView } from './components/profile-view/profile-view';
 
 const store = createStore(moviesApp, devToolsEnhancer());
 
 // Main component (will eventually use all the others)
 class MyFlixApplication extends React.Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <Container>
-          <Router>
-            <Route exact path={ROUTES.HOME}>
-              <MainView />
-            </Route>
-            <Route path={ROUTES.REGISTER}>
-              <RegistrationView />
-            </Route>
-          </Router>
-        </Container>
-      </Provider>
-    );
-  }
+    render() {
+        return (
+            <Provider store={store}>
+                <Container>
+                    {/* 
+                    <Router>
+                        <Route path={ROUTES.PROFILE}>
+                            <ProfileView />
+                        </Route>
+                        <Route exact path={ROUTES.HOME}>
+                            <MainView />
+                        </Route>
+                        <Route path={ROUTES.REGISTER}>
+                            <RegistrationView />
+                        </Route>
+                    </Router>
+*/}
+                    <MainView />
+                </Container>
+            </Provider>
+        );
+    }
 }
 
 // Finds the root of the app
