@@ -16,27 +16,28 @@ export class GenreView extends React.Component {
 
     return (
       <Container className="genre-view">
-        <Row>
+        <Row className="mb-5">
+          <Button
+            className="gen-back-button"
+            onClick={() => {
+              onBackClick(null);
+            }}
+          >
+            Back
+          </Button>
+        </Row>
+        <Row className="mt-5 mb-4">
           <Col className="label">Genre: </Col>
-          <Col className="value" xs={8}>
+          <Col className="value gen-name" xs={12}>
             {genre.Name}
           </Col>
         </Row>
-        <Row className="mt-3">
+        <Row>
           <Col className="label">Description: </Col>
-          <Col className="value" xs={8}>
+          <Col className="value" xs={12}>
             {genre.Description}
           </Col>
         </Row>
-        <Button
-          className="d-block mt-5"
-          onClick={() => {
-            onBackClick(null);
-          }}
-          variant="warning"
-        >
-          Back
-        </Button>
       </Container>
     );
   }

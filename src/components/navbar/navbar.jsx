@@ -6,6 +6,8 @@ import { Navbar as NavbarBootstrap, Nav } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 
+import logo from '../../../assets/logo.png';
+
 // Stylesheet imports
 import './navbar.scss';
 
@@ -27,14 +29,8 @@ export function Navbar({ user }) {
   return (
     <Navbar className="mb-5" expand="lg">
       <Container>
-        <Navbar.Brand href="/">
-          <img
-            alt="Myflix logo"
-            src="../../assets/logo.svg"
-            width="30"
-            height="30"
-          />{' '}
-          Myflix
+        <Navbar.Brand style={{ color: '#d96440' }} href="/">
+          <img alt="Myflix logo" src={logo} width="60" height="60" /> Myflix
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="-basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

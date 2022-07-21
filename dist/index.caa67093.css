@@ -1,7 +1,9 @@
 :root {
-  --background-color: #e5d8b8;
-  --background-color-nav: #e5d8b8;
-  --text-color: #111;
+  --background-color: #e4dcc8;
+  --text-color-dark: #111;
+  --text-color-light: #fff;
+  --btn-color: #d96440;
+  --warn-color: #cbc8c7;
 }
 
 * {
@@ -24,34 +26,60 @@ html {
   padding-bottom: 1%;
 }
 .movie-view {
-  color: rgb(245, 245, 245);
-}
-
-.movie-view {
-  background-color: rgba(9, 27, 73, 0.8);
-  border-radius: 10px;
-  padding: 30px;
-}
-
-.label {
-  font-weight: bold;
+  background-color: var(--background-color);
+  color: var(--text-color-dark);
+  position: relative;
 }
 
 .movie-title {
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 2rem;
+  font-weight: 500;
 }
 
-.movie-buttons-row {
-  margin-left: 0px;
+.movie-descr_label {
+  font-weight: 500;
+  text-decoration: underline;
 }
 
-a {
-  text-decoration: inherit !important;
+.movie-back-button {
+  width: 70px;
+  position: absolute;
+  top: 0px;
+  border: 1px solid var(--text-color-dark) !important;
+  color: var(--text-color-dark) !important;
+  background-color: var(--background-color);
+}
+.movie-back-button:hover {
+  background-color: var(--text-color-dark) !important;
+  border: 1px solid var(--text-color-dark) !important;
+  color: var(--text-color-light) !important;
+}
+.movie-back-button:active {
+  background-color: var(--text-color-dark) !important;
+  color: var(--text-color-light) !important;
+}
+
+.btn-dir,
+.btn-gen {
+  width: 100px;
+  border: 1px solid var(--btn-color) !important;
+  color: var(--btn-color) !important;
+  background-color: var(--background-color);
+}
+.btn-dir:hover,
+.btn-gen:hover {
+  background-color: var(--btn-color) !important;
+  border: 1px solid var(--btn-color) !important;
+  color: var(--text-color-light) !important;
+}
+.btn-dir:active,
+.btn-gen:active {
+  background-color: var(--btn-color) !important;
+  color: var(--text-color-light) !important;
 }
 #login-form {
   background-color: var(--background-color);
-  color: var(--text-color);
+  color: var(--text-color-dark);
   margin: 0 auto;
   padding: 30px;
   width: 70%;
@@ -60,9 +88,24 @@ a {
 #login-form h2 {
   text-align: center;
 }
+
+.btn-log {
+  border: 1px solid var(--btn-color) !important;
+  color: var(--btn-color) !important;
+  background-color: var(--background-color);
+}
+.btn-log:hover {
+  background-color: var(--btn-color) !important;
+  border: 1px solid var(--btn-color) !important;
+  color: var(--text-color-light) !important;
+}
+.btn-log:active {
+  background-color: var(--btn-color) !important;
+  color: var(--text-color-light) !important;
+}
 #registration-form {
   background-color: var(--background-color);
-  color: var(--text-color);
+  color: var(--text-color-dark);
   margin: 0 auto;
   padding: 30px;
   width: 70%;
@@ -71,40 +114,82 @@ a {
 #registration-form h2 {
   text-align: center;
 }
+
+.btn-reg {
+  border: 1px solid var(--btn-color) !important;
+  color: var(--btn-color) !important;
+  background-color: var(--background-color);
+}
+.btn-reg:hover {
+  background-color: var(--btn-color) !important;
+  border: 1px solid var(--btn-color) !important;
+  color: var(--text-color-light) !important;
+}
+.btn-reg:active {
+  background-color: var(--btn-color) !important;
+  color: var(--text-color-light) !important;
+}
 .navbar {
-  background-color: var(--background-color-nav);
+  background-color: var(--background-color);
   padding: 30px;
 }
-
-.navbar h1 {
-  font-weight: 700;
-  color: #fff;
-}
 .director-view {
-  color: rgb(245, 245, 245);
-}
-
-.director-view {
-  background-color: rgba(9, 27, 73, 0.8);
-  border-radius: 10px;
-  padding: 30px;
+  background-color: var(--background-color);
+  color: var(--text-color-dark);
 }
 
 .label {
   font-weight: bold;
-}
-.genre-view {
-  color: rgb(245, 245, 245);
+  text-decoration: underline;
 }
 
+.dir-name {
+  font-size: 1.5rem;
+}
+
+.dir-back-button {
+  width: 70px;
+  border: 1px solid var(--text-color-dark) !important;
+  color: var(--text-color-dark) !important;
+  background-color: var(--background-color);
+}
+.dir-back-button:hover {
+  background-color: var(--text-color-dark) !important;
+  border: 1px solid var(--text-color-dark) !important;
+  color: var(--text-color-light) !important;
+}
+.dir-back-button:active {
+  background-color: var(--text-color-dark) !important;
+  color: var(--text-color-light) !important;
+}
 .genre-view {
-  background-color: rgba(9, 27, 73, 0.8);
-  border-radius: 10px;
-  padding: 30px;
+  background-color: var(--background-color);
+  color: var(--text-color-dark);
 }
 
 .label {
   font-weight: bold;
+  text-decoration: underline;
+}
+
+.gen-name {
+  font-size: 1.5rem;
+}
+
+.gen-back-button {
+  width: 70px;
+  border: 1px solid var(--text-color-dark) !important;
+  color: var(--text-color-dark) !important;
+  background-color: var(--background-color);
+}
+.gen-back-button:hover {
+  background-color: var(--text-color-dark) !important;
+  border: 1px solid var(--text-color-dark) !important;
+  color: var(--text-color-light) !important;
+}
+.gen-back-button:active {
+  background-color: var(--text-color-dark) !important;
+  color: var(--text-color-light) !important;
 }
 #profile-form {
   background-color: rgba(9, 27, 73, 0.8);
@@ -124,15 +209,11 @@ a {
   bottom: 20px;
   padding: 5px 8px;
 }
-.main-view {
-  row-gap: 30px;
-  outline: 3px solid green;
-}
-
 #movie-card {
   background-color: var(--background-color);
-  color: var(--text-color);
+  color: var(--text-color-dark);
   height: 100%;
+  border: none;
 }
 
 #card-title {
@@ -151,17 +232,17 @@ a {
 }
 
 .button {
-  border: 1px solid rgb(9, 27, 73);
-  color: rgb(9, 27, 73);
+  border: 1px solid var(--btn-color) !important;
+  color: var(--btn-color) !important;
 }
 .button:hover {
-  background-color: rgb(9, 27, 73);
-  border: 1px solid rgb(9, 27, 73);
-  color: rgb(245, 245, 245);
+  background-color: var(--btn-color) !important;
+  border: 1px solid var(--btn-color) !important;
+  color: var(--text-color-light) !important;
 }
 .button:active {
-  background-color: rgb(28, 57, 128) !important;
-  color: rgb(245, 245, 245);
+  background-color: var(--btn-color) !important;
+  color: var(--text-color-light) !important;
 }
 
 .btn-open {
@@ -178,8 +259,8 @@ a {
   padding: 5px 8px;
 }
 .main-view {
-  margin: 0 5%;
   min-height: 100vh;
   margin-bottom: 50px;
+  row-gap: 30px;
 }
 /*# sourceMappingURL=index.caa67093.css.map */

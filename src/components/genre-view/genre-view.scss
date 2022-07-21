@@ -1,13 +1,29 @@
 .genre-view {
-  color: rgb(245, 245, 245);
-}
-
-.genre-view {
-  background-color: rgb(9, 27, 73, 0.8);
-  border-radius: 10px;
-  padding: 30px;
+  background-color: var(--background-color);
+  color: var(--text-color-dark);
 }
 
 .label {
   font-weight: bold;
+  text-decoration: underline;
+}
+
+.gen-name {
+  font-size: 1.5rem;
+}
+
+.gen-back-button {
+  width: 70px;
+  border: 1px solid var(--text-color-dark) !important;
+  color: var(--text-color-dark) !important;
+  background-color: var(--background-color);
+  &:hover {
+    background-color: var(--text-color-dark) !important;
+    border: 1px solid var(--text-color-dark) !important;
+    color: var(--text-color-light) !important;
+  }
+  &:active {
+    background-color: var(--text-color-dark) !important;
+    color: var(--text-color-light) !important;
+  }
 }

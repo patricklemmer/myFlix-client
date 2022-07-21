@@ -1,18 +1,13 @@
 .navbar {
-  background-color: var(--background-color-nav);
+  background-color: var(--background-color);
   padding: 30px;
 }
 
 // .navbar-light .navbar-nav .nav-link {
-//   color: var(--text-color);
+//   color: var(--text-color-dark);
 // }
 
 // .navbar-nav .nav-link:hover {
-//   color: var(--text-color);
+//   color: var(--text-color-dark);
 //   font-weight: 800;
 // }
-
-.navbar h1 {
-  font-weight: 700;
-  color: #fff;
-}

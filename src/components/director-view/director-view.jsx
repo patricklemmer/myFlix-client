@@ -16,42 +16,40 @@ export class DirectorView extends React.Component {
 
     return (
       <Container className="director-view">
+        <Row className="mb-5">
+          <Button
+            className="dir-back-button"
+            onClick={() => {
+              onBackClick(null);
+            }}
+          >
+            Back
+          </Button>
+        </Row>
+        <Row className="mt-5 mb-4">
+          <Col className="label" xs={12}>
+            Director:{' '}
+          </Col>
+          <Col className="value dir-name">{director.Name}</Col>
+        </Row>
+        <Row className="mb-4">
+          <Col className="label" xs={12}>
+            Bio:{' '}
+          </Col>
+          <Col className="value">{director.Bio}</Col>
+        </Row>
         <Row>
-          <Col className="label">Director: </Col>
-          <Col className="value" xs={8}>
-            {director.Name}
+          <Col className="label" xs={12}>
+            Year of Birth:{' '}
           </Col>
-        </Row>
-        <Row className="mt-3">
-          <Col className="label">Bio: </Col>
-          <Col className="value" xs={8}>
-            {director.Bio}
-          </Col>
-        </Row>
-        <Row className="mt-3">
-          <Col className="label">Birth: </Col>
-          <Col className="value" xs={8}>
-            {director.Birth}
-          </Col>
+          <Col className="value">{director.Birth}</Col>
         </Row>
         {director.Death && (
-          <Row className="mt-3">
+          <Row>
             <Col className="label">Death: </Col>
-            <Col className="value" xs={8}>
-              {director.Death}
-            </Col>
+            <Col className="value">{director.Death}</Col>
           </Row>
         )}
-
-        <Button
-          className="d-block mt-5"
-          onClick={() => {
-            onBackClick(null);
-          }}
-          variant="warning"
-        >
-          Back
-        </Button>
       </Container>
     );
   }

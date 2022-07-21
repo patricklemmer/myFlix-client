@@ -138,7 +138,11 @@ export function RegistrationView(props) {
             </Form.Group>
             <Row className="mt-4 justify-content-start">
               <Col sm={10} md={8} lg={6}>
-                <Button variant="warning" type="submit" onClick={handleSubmit}>
+                <Button
+                  className="btn-reg"
+                  type="submit"
+                  onClick={handleSubmit}
+                >
                   Register
                 </Button>
                 <p></p>

@@ -1,12 +1,8 @@
-.main-view {
-  row-gap: 30px;
-  outline: 3px solid green;
-}
-
 #movie-card {
   background-color: var(--background-color);
-  color: var(--text-color);
+  color: var(--text-color-dark);
   height: 100%;
+  border: none;
 }
 
 #card-title {
@@ -25,16 +21,16 @@
 }
 
 .button {
-  border: 1px solid rgb(9, 27, 73);
-  color: rgb(9, 27, 73);
+  border: 1px solid var(--btn-color) !important;
+  color: var(--btn-color) !important;
   &:hover {
-    background-color: rgb(9, 27, 73);
-    border: 1px solid rgb(9, 27, 73);
-    color: rgb(245, 245, 245);
+    background-color: var(--btn-color) !important;
+    border: 1px solid var(--btn-color) !important;
+    color: var(--text-color-light) !important;
   }
   &:active {
-    background-color: rgb(28, 57, 128) !important;
-    color: rgb(245, 245, 245);
+    background-color: var(--btn-color) !important;
+    color: var(--text-color-light) !important;
   }
 }
 

@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // React Bootstrap imports
-import { Button, Col, Container, Row } from 'react-bootstrap';
+import { Button, ButtonGroup, Col, Container, Row } from 'react-bootstrap';
 
 // Other imports
 import PropTypes from 'prop-types';
@@ -17,39 +17,39 @@ export class MovieView extends React.Component {
 
     return (
       <Container className="movie-view">
-        <Row className="movie-title mb-4">
-          <Col className="value">{movie.Title}</Col>
+        <Row className="mb-5">
+          <Button
+            className="movie-back-button"
+            onClick={() => {
+              onBackClick(null);
+            }}
+          >
+            Back
+          </Button>
         </Row>
-        <Row className="mb-3 gx-5">
-          <Col className="movie-poster mb-4" md={5} lg={4}>
+        <Row className="movie-title mb-4 mt-5">
+          <Col className="movie-title_value">{movie.Title}</Col>
+        </Row>
+        <Row>
+          <Col xs={12} className="movie-poster mb-4">
             <img src={movie.ImageURL} crossOrigin="anonymous" />
           </Col>
-          <Col className="movie-description" xs={12} sm={12} md={7}>
-            <Col className="label">Description: </Col>
-            <Col className="value">{movie.Description}</Col>
+          <Col className="movie-description  mb-4">
+            <Col className="movie-descr_label">Description: </Col>
+            <Col className="movie-descr_value">{movie.Description}</Col>
           </Col>
         </Row>
-        <Row className="movie-buttons-row">
-          <Link to={`/directors/${movie.Director.Name}`} className="btn-link">
-            <Button className="btn-movie d-block" variant="info">
-              Director
-            </Button>
+        <Row className="button-group d-block">
+          <Link
+            to={`/directors/${movie.Director.Name}`}
+            className="button-link"
+          >
+            <Button className="btn-dir">Director</Button>
           </Link>
-          <Link to={`/genres/${movie.Genre.Name}`} className="btn-link">
-            <Button className="btn-movie d-block ml-3" variant="info">
-              Genre
-            </Button>
+          <Link to={`/genres/${movie.Genre.Name}`} className="button-link">
+            <Button className="btn-gen">Genre</Button>
           </Link>
         </Row>
-        <Button
-          className="d-block mt-5"
-          onClick={() => {
-            onBackClick(null);
-          }}
-          variant="warning"
-        >
-          Back
-        </Button>
       </Container>
     );
   }

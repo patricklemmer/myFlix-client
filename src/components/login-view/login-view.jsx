@@ -91,7 +91,11 @@ export function LoginView(props) {
             </Form.Group>
             <Row className="mt-4 justify-content-start">
               <Col sm={10} md={8} lg={6}>
-                <Button variant="warning" type="submit" onClick={handleSubmit}>
+                <Button
+                  className="btn-log"
+                  type="submit"
+                  onClick={handleSubmit}
+                >
                   Login
                 </Button>
               </Col>

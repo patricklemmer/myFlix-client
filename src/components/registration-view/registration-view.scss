@@ -1,6 +1,6 @@
 #registration-form {
   background-color: var(--background-color);
-  color: var(--text-color);
+  color: var(--text-color-dark);
   margin: 0 auto;
   padding: 30px;
   width: 70%;
@@ -8,4 +8,19 @@
 
 #registration-form h2 {
   text-align: center;
+}
+
+.btn-reg {
+  border: 1px solid var(--btn-color) !important;
+  color: var(--btn-color) !important;
+  background-color: var(--background-color);
+  &:hover {
+    background-color: var(--btn-color) !important;
+    border: 1px solid var(--btn-color) !important;
+    color: var(--text-color-light) !important;
+  }
+  &:active {
+    background-color: var(--btn-color) !important;
+    color: var(--text-color-light) !important;
+  }
 }

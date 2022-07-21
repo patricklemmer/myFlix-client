@@ -1,26 +1,50 @@
 .movie-view {
-  color: rgb(245, 245, 245);
-}
-
-.movie-view {
-  background-color: rgb(9, 27, 73, 0.8);
-  border-radius: 10px;
-  padding: 30px;
-}
-
-.label {
-  font-weight: bold;
+  background-color: var(--background-color);
+  color: var(--text-color-dark);
+  position: relative;
 }
 
 .movie-title {
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 2rem;
+  font-weight: 500;
 }
 
-.movie-buttons-row {
-  margin-left: 0px;
+.movie-descr_label {
+  font-weight: 500;
+  text-decoration: underline;
 }
 
-a {
-  text-decoration: inherit !important;
+.movie-back-button {
+  width: 70px;
+  position: absolute;
+  top: 0px;
+  border: 1px solid var(--text-color-dark) !important;
+  color: var(--text-color-dark) !important;
+  background-color: var(--background-color);
+  &:hover {
+    background-color: var(--text-color-dark) !important;
+    border: 1px solid var(--text-color-dark) !important;
+    color: var(--text-color-light) !important;
+  }
+  &:active {
+    background-color: var(--text-color-dark) !important;
+    color: var(--text-color-light) !important;
+  }
+}
+
+.btn-dir,
+.btn-gen {
+  width: 100px;
+  border: 1px solid var(--btn-color) !important;
+  color: var(--btn-color) !important;
+  background-color: var(--background-color);
+  &:hover {
+    background-color: var(--btn-color) !important;
+    border: 1px solid var(--btn-color) !important;
+    color: var(--text-color-light) !important;
+  }
+  &:active {
+    background-color: var(--btn-color) !important;
+    color: var(--text-color-light) !important;
+  }
 }
