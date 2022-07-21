@@ -2,15 +2,23 @@
   background-color: var(--background-color);
   color: var(--text-color-dark);
   height: 100%;
-  border: none;
 }
 
 #card-title {
   font-weight: bold;
 }
 
+.card-body {
+  border-left: 1px solid var(--text-color-dark);
+  border-right: 1px solid var(--text-color-dark);
+  border-bottom: 1px solid var(--text-color-dark);
+}
+
 .card-text {
   margin-bottom: 50px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .card-img {

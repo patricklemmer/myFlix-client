@@ -90,15 +90,12 @@ export function LoginView(props) {
               {passwordErr && <p>{passwordErr}</p>}
             </Form.Group>
             <Row className="mt-4 justify-content-start">
-              <Col sm={10} md={8} lg={6}>
-                <Button
-                  className="btn-log"
-                  type="submit"
-                  onClick={handleSubmit}
-                >
-                  Login
-                </Button>
-              </Col>
+              <Button className="btn-log" type="submit" onClick={handleSubmit}>
+                Login
+              </Button>
+              <Form.Text>
+                No account? Sign up <Link to={'/users'}>here</Link>
+              </Form.Text>
             </Row>
           </Form>
         </Col>

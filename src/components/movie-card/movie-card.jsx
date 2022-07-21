@@ -44,7 +44,7 @@ export class MovieCard extends React.Component {
             crossOrigin="anonymous"
           />
         </Link>
-        <Card.Body>
+        <Card.Body className="card-body">
           <Card.Title id="card-title">{movie.Title}</Card.Title>
           <Card.Text className="movie_description">
             {movie.Description}
