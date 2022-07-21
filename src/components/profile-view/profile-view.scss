@@ -1,13 +1,16 @@
 #profile-form {
-  background-color: rgb(9, 27, 73, 0.8);
-  border-radius: 10px;
-  color: rgb(245, 245, 245);
-  margin: 0 auto;
-  padding: 30px;
+  background-color: var(--background-color);
+  color: var(--text-color-dark);
+  width: 100%;
 }
 
 #update-form {
   padding: 0;
+}
+
+.label {
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 .btn-remove {
@@ -15,4 +18,42 @@
   left: 80px;
   bottom: 20px;
   padding: 5px 8px;
+}
+
+.update-btn {
+  border: 1px solid var(--btn-color) !important;
+  color: var(--btn-color) !important;
+  background-color: var(--background-color);
+  &:hover {
+    background-color: var(--btn-color) !important;
+    border: 1px solid var(--btn-color) !important;
+    color: var(--text-color-light) !important;
+  }
+  &:active {
+    background-color: var(--btn-color) !important;
+    color: var(--text-color-light) !important;
+  }
+  &:focus {
+    background-color: var(--btn-color) !important;
+    color: var(--text-color-light) !important;
+  }
+}
+
+.delete-button {
+  border: 1px solid var(--btn-color) !important;
+  color: var(--text-color-light) !important;
+  background-color: var(--btn-color);
+  &:hover {
+    background-color: var(--btn-color) !important;
+    border: 1px solid var(--btn-color) !important;
+    color: var(--text-color-light) !important;
+  }
+  &:active {
+    background-color: var(--btn-color) !important;
+    color: var(--text-color-light) !important;
+  }
+  &:focus {
+    background-color: var(--btn-color) !important;
+    color: var(--text-color-light) !important;
+  }
 }

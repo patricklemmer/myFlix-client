@@ -8,6 +8,9 @@ import { Container, Navbar, Nav } from 'react-bootstrap';
 // Media imports
 import logo from '../../../assets/logo.png';
 
+//Other imports
+import { ROUTES } from '../../routes';
+
 // Stylesheet imports
 import './navbar.scss';
 
@@ -37,8 +40,12 @@ export function Navbar({ user }) {
           <Nav>
             {isAuth() && (
               <Fragment>
-                <Nav.Link href="/">Home</Nav.Link>
-                <Nav.Link href={`/users/${user}`}>Profile</Nav.Link>
+                <Link className="nav-link" to={ROUTES.HOME}>
+                  Home
+                </Link>
+                <Link className="nav-link" to={`/users/${user}`}>
+                  Profile
+                </Link>
                 <Nav.Link onClick={onLoggedOut}>Sign-out</Nav.Link>
               </Fragment>
             )}

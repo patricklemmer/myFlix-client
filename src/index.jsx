@@ -17,7 +17,6 @@ import { ROUTES } from './routes.js';
 
 // Component imports
 import MainView from './components/main-view/main-view';
-import { RegistrationView } from './components/registration-view/registration-view';
 
 // Import statement to indicate that you need to bundle `./index.scss`
 import './index.scss';
@@ -30,14 +29,7 @@ class MyFlixApplication extends React.Component {
     return (
       <Provider store={store}>
         <Container>
-          <Router>
-            <Route exact path={ROUTES.HOME}>
-              <MainView />
-            </Route>
-            <Route path={ROUTES.REGISTER}>
-              <RegistrationView />
-            </Route>
-          </Router>
+          <MainView />
         </Container>
       </Provider>
     );

@@ -86,8 +86,8 @@ export function UpdateView(props) {
   };
 
   return (
-    <Container id="update-form" className="mt-5">
-      <Row>
+    <Container id="update-form">
+      <Row className="mb-3 mt-5">
         <h3>Edit profile</h3>
       </Row>
       <Row>
@@ -139,7 +139,11 @@ export function UpdateView(props) {
               />
             </Form.Group>
             <Form.Group controlId="formBirthday" className="mt-4">
-              <Button variant="warning" type="submit" onClick={handleSubmit}>
+              <Button
+                className="update-btn"
+                type="submit"
+                onClick={handleSubmit}
+              >
                 Edit profile
               </Button>
             </Form.Group>

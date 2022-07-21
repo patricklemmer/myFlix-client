@@ -3,5 +3,5 @@ export const ROUTES = {
   LOGIN: '/login',
   REGISTER: '/users',
   MOVIES: '/movies',
-  PROFILE: '/profile',
+  PROFILE: '/users/:user',
 };

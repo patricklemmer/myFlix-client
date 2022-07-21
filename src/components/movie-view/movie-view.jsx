@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // React Bootstrap imports
-import { Button, ButtonGroup, Col, Container, Row } from 'react-bootstrap';
+import { Button, Col, Container, Row } from 'react-bootstrap';
 
 // Other imports
 import PropTypes from 'prop-types';
@@ -63,7 +63,7 @@ MovieView.propTypes = {
     Director: PropTypes.shape({
       Name: PropTypes.string.isRequired,
       Bio: PropTypes.string.isRequired,
-      Birth: PropTypes.string.isRequired,
+      Birth: PropTypes.number.isRequired,
       Died: PropTypes.string,
     }),
     Genre: PropTypes.shape({

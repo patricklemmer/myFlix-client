@@ -18,13 +18,15 @@ export class MovieCard extends React.Component {
     const currentUser = localStorage.getItem('user');
     const token = localStorage.getItem('token');
     try {
-      let response = await axios.put(
-        `https://patricklemmer-myflix.herokuapp.com/users/${currentUser}/movies/${movieId}`,
+      const url = `https://patricklemmer-myflix.herokuapp.com/users/${currentUser}/movies/${movieId}`;
+      let response = await axios.post(
+        url,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
+      console.log('response: ', response);
       alert(`The movie was successfully added to your list.`);
     } catch (error) {
       console.error(error);

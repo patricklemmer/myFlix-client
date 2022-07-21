@@ -37,10 +37,6 @@ export function ProfileView(props) {
     }
   };
 
-  useEffect(() => {
-    getUser();
-  }, []);
-
   const handleDelete = async () => {
     try {
       await axios.delete(
@@ -64,9 +60,13 @@ export function ProfileView(props) {
     }
   };
 
+  useEffect(() => {
+    getUser();
+  }, []);
+
   return (
     <Container id="profile-form">
-      <Row>
+      <Row className="mb-3">
         <h3>Your profile</h3>
       </Row>
       <Row>
@@ -101,23 +101,18 @@ export function ProfileView(props) {
           {birthdayDate()}
         </Col>
       </Row>
-      <Row className="mt-5">
-        <h3>Your favorite movies</h3>
+      <Row className="mb-3 mt-5">
+        <h3>Your favourite movies</h3>
       </Row>
-      <Row className="mt-3">
+      <Row className="mb-3 mt-5">
         <FavouriteMoviesView
-          movies={movies}
           favouriteMovies={favouriteMovies}
           currentUser={currentUser}
           token={token}
         />
       </Row>
       <UpdateView user={user} />
-      <Button
-        className="d-block mt-5 mb-5"
-        variant="warning"
-        onClick={handleDelete}
-      >
+      <Button className="delete-button d-block mt-5" onClick={handleDelete}>
         Delete profile
       </Button>
     </Container>
