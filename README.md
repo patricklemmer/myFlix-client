@@ -11,10 +11,6 @@
 
 <!-- PROJECT LOGO -->
 <br />
-<div align="center">
-  <a href="https://github.com/patricklemmer/myFlix_client">
-    <img src="https://github.com/patricklemmer/assets/blob/main/readme_icon.png" alt="Logo" width="80" height="80">
-  </a>
 
 <h3 align="center">myFlix App</h3>
 
@@ -142,17 +138,6 @@ The following will be released in v.1.1.0:
     - to be evaluated
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
-<!-- CONTRIBUTORS -->
-## Contributors
-
-<table><tr><td align="center"><a href="https://patricklemmer.github.io/portfolio-website/index.html"><img src="https://github.com/patricklemmer/assets/blob/main/profile_image.png" width="100px;" alt="Patrick Lemmer"/><br /><sub><b>Patrick Lemmer</b></sub></a><br /><a href="https://github.com/patricklemmer/js_app/commits/master" title="Code">💻</a></td></tr>
-</table>
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- CONTRIBUTING -->
 ## Contributing
