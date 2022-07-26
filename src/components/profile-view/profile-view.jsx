@@ -31,7 +31,12 @@ export function ProfileView(props) {
         }
       );
       setUser(response.data);
-      setFavouriteMovies(response.data.FavouriteMovies);
+
+      const favouriteMoviesList = response.data.FavouriteMovies.map((movie) => {
+        return movies.find((m) => m._id === movie);
+      });
+
+      setFavouriteMovies(favouriteMoviesList);
     } catch {
       (error) => console.error(error);
     }

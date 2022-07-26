@@ -15,12 +15,6 @@ import './profile-view.scss';
 export function FavouriteMoviesView(props) {
   const { favouriteMovies, currentUser, token } = props;
 
-  // const favouriteMoviesId = favouriteMovies.map((m) => m._id);
-
-  // const favouriteMoviesList = movies.filter((m) => {
-  //   return favouriteMoviesId.includes(m._id);
-  // });
-
   const handleMovieDelete = async (movieId) => {
     try {
       await axios.delete(
@@ -94,7 +88,7 @@ FavouriteMoviesView.propTypes = {
       Director: PropTypes.shape({
         Name: PropTypes.string.isRequired,
         Bio: PropTypes.string.isRequired,
-        Birth: PropTypes.string.isRequired,
+        Birth: PropTypes.number.isRequired,
         Death: PropTypes.string,
       }),
       Genre: PropTypes.shape({

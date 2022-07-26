@@ -53,9 +53,7 @@ class MainView extends React.Component {
         }
       );
       this.props.setMovies(response.data);
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   }
 
   // When a user successfully logs in, this function updates the `user` property in state to that *particular user
