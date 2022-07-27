@@ -121,6 +121,30 @@ The objective for this project is, using React to build the client-side for the 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+<!-- Project setup -->
+## How to run this project
+
+1. Install parcel locally
+``
+npm install parcel
+``
+
+2. Clone the repository 
+````
+git clone https://github.com/patricklemmer/myFlix-client.git
+````
+
+3. Install all dependencies
+``
+npm install
+``
+
+4. Run the app on localhost:1234
+``
+parcel src/index.html
+``
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- ROADMAP -->
 ## Version Roadmap (***to be updated***)
