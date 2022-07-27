@@ -4,7 +4,8 @@
   "description": "",
   "entry": "src/index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -15,10 +16,11 @@
   "bugs": {
     "url": "https://github.com/patricklemmer/myFlix-client/issues"
   },
-  "homepage": "https://github.com/patricklemmer/myFlix-client#readme",
+  "homepage": "https://patricklemmer.github.io/myFlix-client",
   "dependencies": {
     "axios": "^0.27.2",
     "bootstrap": "^5.2.0",
+    "gh-pages": "^4.0.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.4.0",
