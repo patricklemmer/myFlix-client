@@ -14,7 +14,7 @@ import { ROUTES } from '../../routes';
 // Stylesheet imports
 import './navbar.scss';
 
-export function Navbar({ user }) {
+export default function Navbar({ user }) {
   const isAuth = () => {
     let accessToken = localStorage.getItem('token');
     if (accessToken) {
